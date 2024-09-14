@@ -1,245 +1,317 @@
-//Sat Sep 14 2024 05:25:04 GMT+0000 (Coordinated Universal Time)
+//Sat Sep 14 2024 05:37:28 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-const path = require("path"),
-  common = require("./jdCommon");
-let scriptName = null,
-  expireMinutes = 29;
-try {
-  let tmpMinutes = parseInt(process.env.JD_ISV_TOKEN_CACHE_EXPIRE_MINUTES || "29");
-  expireMinutes = tmpMinutes;
-} catch {}
-const defaultCacheTTL = expireMinutes * 60 * 1000,
-  TokenCache = new common.DataCache(process.env.JD_ISV_TOKEN_CUSTOM_CACHE || __dirname + "/token.json", defaultCacheTTL, 180000),
-  lzkjPinFilter = (process.env.JD_ISV_TOKEN_LZKJ_PIN_FILTER || "").split("@"),
-  lzkjPinFilter_interactsaas_and_interaction_v1 = (process.env.JD_ISV_TOKEN_LZKJ_INTERACTSAAS_AND_INTERACTION_V1_PIN_FILTER || process.env.JD_ISV_TOKEN_LZKJ_NEW_PIN_FILTER || "").split("@"),
-  lzkjPinFilter_interaction_v2 = (process.env.JD_ISV_TOKEN_LZKJ_INTERACTION_V2_PIN_FILTER || "").split("@"),
-  cjhyPinFilter = (process.env.JD_ISV_TOKEN_CJHY_PIN_FILTER || "").split("@");
-let requestAxiosProxyConfig, requestDynamicProxyConfig;
-try {
-  const proxyAddress = process.env.JD_ISV_TOKEN_HTTP_PROXY || process.env.JD_ISV_TOKEN_PROXY || "";
-  if (proxyAddress) {
-    const proxyConfig = common._getProxyConfigWithAddress(proxyAddress);
-    proxyConfig ? (requestAxiosProxyConfig = proxyConfig, console.log("🌐 已启用 getToken 局部静态代理")) : console.log("❌ 提供的代理地址无效，跳过启用 getToken 局部静态代理");
-  } else {
-    const proxyApi = process.env.JD_ISV_TOKEN_HTTP_DYNAMIC_PROXY_API || process.env.JD_ISV_TOKEN_PROXY_API || "";
-    if (proxyApi) {
-      requestDynamicProxyConfig = {
-        "api": null,
-        "proxyConfig": null,
-        "useLimit": null,
-        "timeLimit": null,
-        "fetchFailContinue": null,
-        "extractTimestamp": null,
-        "lastUseTimeStamp": null,
-        "usedTimes": null
-      };
-      requestDynamicProxyConfig.api = proxyApi;
-      const useLimit = process.env.JD_ISV_TOKEN_HTTP_DYNAMIC_PROXY_USE_LIMIT || process.env.JD_ISV_TOKEN_PROXY_API_MAX || "1";
-      try {
-        requestDynamicProxyConfig.useLimit = parseInt(useLimit);
-      } catch {
-        requestDynamicProxyConfig.useLimit = 1;
-      }
-      const timeLimit = process.env.JD_ISV_TOKEN_HTTP_DYNAMIC_PROXY_TIME_LIMIT || "30000";
-      try {
-        requestDynamicProxyConfig.timeLimit = parseInt(timeLimit);
-      } catch {
-        requestDynamicProxyConfig.timeLimit = 10000;
-      }
-      requestDynamicProxyConfig.fetchFailContinue = (process.env.JD_ISV_TOKEN_HTTP_DYNAMIC_PROXY_FETCH_FAIL_CONTINUE || "false") === "true";
-      console.log("🌐 已启用 getToken 局部动态代理");
-    }
+const fs = require("fs"),
+  jsdom = require("jsdom"),
+  querystring = require("querystring");
+class H5st {
+  constructor() {
+    this.domWindow3_1 = null;
+    this.domWindow3_1_UA = null;
+    this.domWindow4_1 = null;
+    this.domWindow4_1_UA = null;
+    this.domWindow4_2 = null;
+    this.domWindow4_2_UA = null;
+    this.domWindow4_3 = null;
+    this.domWindow4_3_UA = null;
+    this.domWindow4_4 = null;
+    this.domWindow4_4_UA = null;
   }
-  const globalProxy = process.env.JD_ISV_GLOBAL_PROXY === "true";
-  if (globalProxy) try {
-    require("global-agent/bootstrap");
-    console.log("🌐 已启用 global-agent 全局代理");
-  } catch (lI11llll) {
-    console.log("❌ getToken 代理模块加载失败 ➜ " + lI11llll.message);
-  }
-} catch {}
-const redisUrl = process.env.JD_ISV_TOKEN_REDIS_CACHE_URL || "",
-  redisKey = process.env.JD_ISV_TOKEN_REDIS_CACHE_KEY || "",
-  redisSubmit = !(process.env.JD_ISV_TOKEN_REDIS_CACHE_SUBMIT === "false"),
-  hasRedisKey = /<pt_pin>/.test(redisKey);
-let redisClient = null;
-if (redisUrl) {
-  let redis = null;
-  try {
-    redis = require("redis");
-  } catch (l1lIlII1) {
-    console.log("❌ getToken Redis模块加载失败 ➜ " + l1lIlII1.message);
-  }
-  if (redis) try {
-    redisClient = redis.createClient({
-      "url": redisUrl
+  async ["_sleep"](ilil11lI) {
+    return new Promise((illIliI1, IliiIllI) => {
+      setTimeout(() => {
+        illIliI1(ilil11lI);
+      }, ilil11lI);
     });
-  } catch (IliIlI) {
-    console.log("❌ getToken Redis连接异常 ➜ " + (IliIlI.message || IliIlI));
   }
-}
-async function _redisCacheGet(i11IIIli) {
-  const Ilil1Il = encodeURIComponent(hasRedisKey ? redisKey.replace(/<pt_pin>/g, ptPin) : "" + redisKey + i11IIIli),
-    IliI1I1i = 3;
-  let Iii1Ill = null;
-  for (let lllill = 0; lllill < IliI1I1i; lllill++) {
-    try {
-      await redisClient.connect();
-    } catch {}
-    try {
-      const II1I1ll1 = await redisClient.get(Ilil1Il);
-      if (II1I1ll1) return II1I1ll1;
-      Iii1Ill = null;
-      break;
-    } catch (lIiIlIII) {
-      Iii1Ill = lIiIlIII.message || lIiIlIII;
-    }
-  }
-  if (Iii1Ill) console.log("🚫 getToken Redis缓存读取失败 ➜ " + Iii1Ill);
-  return "";
-}
-async function _redisCachePut(li1lII, l1ii1iil) {
-  const lIIili11 = Math.floor((Date.now() + defaultCacheTTL) / 1000),
-    Il11iiIi = encodeURIComponent(hasRedisKey ? redisKey.replace(/<pt_pin>/g, ptPin) : "" + redisKey + li1lII),
-    III1l1iI = l1ii1iil,
-    IlI1ll1i = 3;
-  let lI11lIl1 = null;
-  for (let iilIl11 = 0; iilIl11 < IlI1ll1i; iilIl11++) {
-    try {
-      await redisClient.connect();
-    } catch {}
-    try {
-      await redisClient.set(Il11iiIi, III1l1iI);
-      await redisClient.EXPIREAT(Il11iiIi, lIIili11);
-      lI11lIl1 = null;
-      break;
-    } catch (liliI1i1) {
-      lI11lIl1 = liliI1i1.message || liliI1i1;
-    }
-  }
-  if (lI11lIl1) console.log("🚫 getToken Redis缓存写入失败 ➜ " + lI11lIl1);
-}
-async function _redisClientClose() {
-  try {
-    await redisClient.disconnect();
-  } catch (i1i1IiI) {
-    errorMessage = i1i1IiI.message || i1i1IiI;
-  }
-}
-async function getToken(IlI1, IlIlI1Il, li11IliI = true) {
-  let ilIiI1I = "";
-  try {
-    const IlIIlIi1 = decodeURIComponent(common.getCookieValue(IlI1, "pt_pin"));
-    if (IlIIlIi1) {
-      if (!scriptName) {
-        const i11llI1I = require.main.filename;
-        scriptName = path.basename(i11llI1I, ".js");
-      }
-      if (li11IliI) {
-        let l111ilil = [];
-        if (IlIlI1Il.includes("lzkj")) {
-          if (scriptName.startsWith("jd_lzkj_v2_")) l111ilil = lzkjPinFilter_interaction_v2;else scriptName.startsWith("jd_lzkj_") ? l111ilil = lzkjPinFilter_interactsaas_and_interaction_v1 : l111ilil = lzkjPinFilter;
-        } else IlIlI1Il.includes("cjhy") && (l111ilil = cjhyPinFilter);
-        if (l111ilil.length > 0 && (l111ilil.includes(IlIIlIi1) || l111ilil.includes(encodeURIComponent(IlIIlIi1)))) return console.log("已设置跳过运行该账号（全局屏蔽）"), "";
-        ilIiI1I = TokenCache.get(IlIIlIi1) || "";
-        if (ilIiI1I) return ilIiI1I;
-        if (redisClient) {
-          ilIiI1I = await _redisCacheGet(IlIIlIi1);
-          if (ilIiI1I) {
-            return ilIiI1I;
-          }
-        }
-      }
-    }
-    const iIlI1ll = await common.getSign("isvObfuscator", {
-      "url": IlIlI1Il,
-      "id": ""
-    });
-    if (!iIlI1ll) return console.log("🚫 getToken 签名获取失败"), "";
-    let ll1liliI = null,
-      Iii1I = false;
-    if (requestAxiosProxyConfig || requestDynamicProxyConfig) {
-      if (requestAxiosProxyConfig) ll1liliI = requestAxiosProxyConfig;else {
-        if (requestDynamicProxyConfig) {
-          if (requestDynamicProxyConfig.proxyConfig) ll1liliI = requestDynamicProxyConfig.proxyConfig, Iii1I = true;else {
-            const IlI1IIl = await common.getProxyAddressWithApi(requestDynamicProxyConfig.api),
-              l1I11II1 = common._getProxyConfigWithAddress(IlI1IIl);
-            if (l1I11II1) {
-              requestDynamicProxyConfig.extractTimestamp = Date.now();
-              requestDynamicProxyConfig.usedTimes = 0;
-              requestDynamicProxyConfig.proxyConfig = l1I11II1;
-              ll1liliI = l1I11II1;
-              Iii1I = true;
-            } else {
-              if (!requestDynamicProxyConfig.fetchFailContinue) {
-                return console.log("🚫 getToken 请求错误 ➜ 获取动态代理地址失败，已设置跳过请求"), "";
-              }
-            }
-          }
-        }
-      }
-    }
-    const i1IiIli = {
-        "url": "https://api.m.jd.com/client.action?functionId=isvObfuscator",
-        "method": "POST",
-        "headers": {
-          "Host": "api.m.jd.com",
-          "Content-Type": "application/x-www-form-urlencoded",
-          "User-Agent": common.genUA(IlIIlIi1) || "JD4iPhone/167650 (iPhone; iOS 13.7; Scale/3.00)",
-          "Accept-Language": "zh-Hans-CN;q=1",
-          "Accept-Encoding": "gzip, deflate, br",
-          "J-E-H": common.getJEH(),
-          "J-E-C": common.getJEC(IlIIlIi1),
-          "Cookie": IlI1
-        },
-        "proxy": ll1liliI,
-        "data": iIlI1ll,
-        "timeout": 60000
+  async ["_loadH5Sdk"](iIl1Iill, llliiili) {
+    const {
+      JSDOM: iliIil1I
+    } = jsdom;
+    let l111I1lI = new jsdom.ResourceLoader({
+        "userAgent": llliiili
+      }),
+      li1111iI = new jsdom.VirtualConsole(),
+      III11iI1 = {
+        "url": "http://localhost",
+        "userAgent": llliiili,
+        "runScripts": "dangerously",
+        "resources": l111I1lI,
+        "includeNodeLocations": true,
+        "storageQuota": 1000000000,
+        "pretendToBeVisual": true,
+        "virtualConsole": li1111iI
       },
-      l1IIIl = 2;
-    let i1li1lli = 0,
-      iiI1iIi = null;
-    while (i1li1lli < l1IIIl) {
-      const Ill1iIll = await common.request(i1IiIli);
-      if (Iii1I) {
-        requestDynamicProxyConfig.lastUseTimeStamp = Date.now();
-        requestDynamicProxyConfig.usedTimes++;
-        const i11lllll = requestDynamicProxyConfig.useLimit > 0 && requestDynamicProxyConfig.usedTimes >= requestDynamicProxyConfig.useLimit,
-          i11iI11l = requestDynamicProxyConfig.timeLimit > 0 && Date.now() - requestDynamicProxyConfig.extractTimestamp >= requestDynamicProxyConfig.timeLimit;
-        (i11lllll || i11iI11l) && (requestDynamicProxyConfig.proxyConfig = null, requestDynamicProxyConfig.lastUseTimeStamp = null, requestDynamicProxyConfig.extractTimestamp = null, requestDynamicProxyConfig.usedTimes = 0);
-      }
-      if (!Ill1iIll.success) {
-        iiI1iIi = "❌ getToken 请求失败 ➜ " + Ill1iIll.error;
-        i1li1lli++;
-        continue;
-      }
-      if (!Ill1iIll.data) {
-        iiI1iIi = "🚫 getToken 请求失败 ➜ 无响应数据";
-        i1li1lli++;
-        continue;
-      }
-      try {
-        const lliI1iI1 = Ill1iIll.data;
-        if (lliI1iI1.code === "0") {
-          ilIiI1I = lliI1iI1.token;
-          TokenCache.put(IlIIlIi1, ilIiI1I, defaultCacheTTL);
-          redisClient && redisSubmit && (await _redisCachePut(IlIIlIi1, ilIiI1I));
-        } else {
-          if (lliI1iI1.code === "3" && lliI1iI1.errcode === 264) {
-            console.log("🚫 getToken 接口响应异常 ➜ 账号无效");
-          } else console.log("🚫 getToken 接口响应异常 ➜ " + JSON.stringify(lliI1iI1));
-        }
-      } catch (illIiliI) {
-        console.log("🚫 getToken 在处理接口响应时遇到了错误 ➜ " + (illIiliI.message || illIiliI));
-      }
-      break;
+      li1l1ii1 = "";
+    switch (iIl1Iill) {
+      case "3.1":
+        li1l1ii1 = "<script>" + fs.readFileSync(__dirname + "/assets/index_1.js", "utf-8") + "</script>";
+        break;
+      case "4.1":
+        li1l1ii1 = "<script>" + fs.readFileSync(__dirname + "/assets/index_2.js", "utf-8") + "</script>";
+        break;
+      case "4.2":
+        li1l1ii1 = "<script>" + fs.readFileSync(__dirname + "/assets/index_3.js", "utf-8") + "</script>";
+        break;
+      case "4.3":
+        li1l1ii1 = "<script>" + fs.readFileSync(__dirname + "/assets/index_4.js", "utf-8") + "</script>";
+        break;
+      case "4.4":
+        li1l1ii1 = "<script>" + fs.readFileSync(__dirname + "/assets/index_5.js", "utf-8") + "</script>";
+        break;
     }
-    return i1li1lli >= l1IIIl && console.log(iiI1iIi), ilIiI1I;
-  } catch (lil1II) {
-    return console.log("🚫 getToken 在处理请求时遇到了错误"), console.log(lil1II), ilIiI1I;
-  } finally {
-    redisClient && (await _redisClientClose());
+    const lIlIli11 = new iliIil1I("<body>\n    " + li1l1ii1 + "\n</body>", III11iI1);
+    do {
+      await this._sleep(100);
+    } while (!lIlIli11.window.ParamsSign);
+    switch (iIl1Iill) {
+      case "3.1":
+        this.domWindow3_1 = lIlIli11.window;
+        break;
+      case "4.1":
+        this.domWindow4_1 = lIlIli11.window;
+        break;
+      case "4.2":
+        this.domWindow4_2 = lIlIli11.window;
+        break;
+      case "4.3":
+        this.domWindow4_3 = lIlIli11.window;
+        break;
+      case "4.4":
+        this.domWindow4_4 = lIlIli11.window;
+        break;
+    }
+  }
+  async ["_signWaap"](lilI1ii1, lI11I1ii, iiiIl1i1) {
+    const ilIlilII = new iiiIl1i1.ParamsSign({
+      "appId": lilI1ii1,
+      "preRequest": false,
+      "debug": false,
+      "onSign"({
+        code: i1lII1Il,
+        message: II1ilI,
+        data: i11lI1II
+      }) {},
+      "onRequestTokenRemotely"({
+        code: IiI1IllI,
+        message: iI11lIli
+      }) {},
+      "onRequestToken"({
+        code: liiiIi,
+        message: ill1Iiii
+      }) {}
+    });
+    let il1l1l1l = {
+      "appid": lI11I1ii.appid,
+      "body": this._SHA256(JSON.stringify(lI11I1ii.body)).toString(),
+      "client": lI11I1ii.client || "",
+      "clientVersion": lI11I1ii.clientVersion || "",
+      "functionId": lI11I1ii.functionId
+    };
+    for (const IiIiIiI1 of ["client", "clientVersion"]) {
+      !lI11I1ii[IiIiIiI1] && delete il1l1l1l[IiIiIiI1];
+    }
+    lI11I1ii?.["t"] && (il1l1l1l.t = lI11I1ii.t);
+    let I11I1I11 = await ilIlilII.sign(il1l1l1l);
+    if (!I11I1I11?.["h5st"] || I11I1I11.h5st === "null") {
+      console.log("❌ getH5st 签名生成失败");
+      I11I1I11.h5st = "";
+    }
+    return I11I1I11?.["h5st"] || "";
+  }
+  async ["getH5st"](liIl1lll) {
+    let i1lIl11i = {
+      ...liIl1lll,
+      "h5st": "",
+      "params": "",
+      "paramsData": {}
+    };
+    try {
+      if (!(typeof liIl1lll === "object" && liIl1lll !== null)) {
+        return console.log("❌ getH5st 传入参数有误"), i1lIl11i;
+      } else {
+        const Ili1lI1i = ["appId", "appid", "body", "functionId"],
+          IliIilII = Ili1lI1i.filter(IiliIlii => !liIl1lll[IiliIlii]);
+        if (IliIilII.length > 0) {
+          return console.log("❌ getH5st 传入参数有误，缺少必要参数：" + IliIilII.join(", ")), i1lIl11i;
+        }
+      }
+      switch (liIl1lll?.["version"]) {
+        case "3.1":
+        case "4.1":
+        case "4.2":
+        case "4.3":
+        case "4.4":
+          break;
+        default:
+          liIl1lll.version = "4.3";
+          break;
+      }
+      const {
+          appId: illlIlll,
+          appid: Iil1ill1,
+          body: I111i1il,
+          client: II1i1lli,
+          clientVersion: IIIll1il,
+          functionId: li1iI11,
+          version: iIil1i1l
+        } = liIl1lll,
+        llli1li = Math.floor(Date.now() / 1000),
+        illIllI = "jdapp;iPhone;12.3.1;;rn/a5e53b61-94a0-da77-7e2f-fda45564911e;M/5.0;appBuild/168919;jdSupportDarkMode/0;ef/1;ep/%7B%22ciphertype%22%3A5%2C%22cipher%22%3A%7B%22ud%22%3A%22DG%3D%3D%22%2C%22sv%22%3A%22CG%3D%3D%22%2C%22iad%22%3A%22%22%7D%2C%22ts%22%3A" + llli1li + "%2C%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22version%22%3A%221.0.3%22%2C%22appname%22%3A%22com.360buy.jdmobile%22%2C%22ridx%22%3A-1%7D;Mozilla/5.0 (iPhone; CPU iPhone OS 17_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1;",
+        iil1i111 = liIl1lll?.["ua"] || illIllI,
+        I1iiil1I = "domWindow" + iIil1i1l.replace(".", "_"),
+        lili1IIi = I1iiil1I + "_UA";
+      if (!this[I1iiil1I] || this[lili1IIi] && this[lili1IIi] !== iil1i111) {
+        await this._loadH5Sdk(iIil1i1l, iil1i111);
+        this[lili1IIi] = iil1i111;
+      }
+      const IiiliI1i = {
+        "appid": Iil1ill1,
+        "body": I111i1il,
+        "client": II1i1lli,
+        "clientVersion": IIIll1il,
+        "functionId": li1iI11
+      };
+      if (liIl1lll?.["t"] && typeof liIl1lll.t === "boolean") liIl1lll.t = Date.now(), IiiliI1i.t = liIl1lll.t;else {
+        liIl1lll.t = "";
+      }
+      if (!IiiliI1i.client) delete IiiliI1i.client;
+      if (!IiiliI1i.clientVersion) delete IiiliI1i.clientVersion;
+      const ilIi1lI1 = await this._signWaap(illlIlll, IiiliI1i, this[I1iiil1I]),
+        III1i1l1 = {
+          "functionId": li1iI11,
+          "body": JSON.stringify(I111i1il),
+          "t": "",
+          "appid": Iil1ill1,
+          "client": "",
+          "clientVersion": "",
+          "h5st": ilIi1lI1 || ""
+        };
+      for (const lil11Il of ["t", "client", "clientVersion"]) {
+        if (liIl1lll[lil11Il]) {
+          III1i1l1[lil11Il] = liIl1lll[lil11Il];
+        } else delete III1i1l1[lil11Il];
+      }
+      return i1lIl11i = {
+        ...liIl1lll,
+        "h5st": ilIi1lI1 || "",
+        "params": querystring.stringify(III1i1l1),
+        "paramsData": III1i1l1
+      }, i1lIl11i;
+    } catch (Ii1i1iIl) {
+      console.log("❌ getH5st 遇到了错误 " + (Ii1i1iIl.message || Ii1i1iIl));
+    }
+    return i1lIl11i;
+  }
+  ["_SHA256"](lI1l1i1l) {
+    var il1I11ll = 8,
+      iIlli11I = 0;
+    function ll11lII(i1llI11, iiII1I1) {
+      var il11I11l = (i1llI11 & 65535) + (iiII1I1 & 65535),
+        ii1Ill11 = (i1llI11 >> 16) + (iiII1I1 >> 16) + (il11I11l >> 16);
+      return ii1Ill11 << 16 | il11I11l & 65535;
+    }
+    function il1l1lIi(Illil1l, l1iiIili) {
+      return Illil1l >>> l1iiIili | Illil1l << 32 - l1iiIili;
+    }
+    function I11ilIli(illliI1i, iIlIIIiI) {
+      return illliI1i >>> iIlIIIiI;
+    }
+    function ll11lii(IliiiIiI, lIlIIlil, i1iIiii) {
+      return IliiiIiI & lIlIIlil ^ ~IliiiIiI & i1iIiii;
+    }
+    function Iii11iiI(iIiiIlI, llll1l1l, i11lIi1) {
+      return iIiiIlI & llll1l1l ^ iIiiIlI & i11lIi1 ^ llll1l1l & i11lIi1;
+    }
+    function Iii11II1(iI11Il1) {
+      return il1l1lIi(iI11Il1, 2) ^ il1l1lIi(iI11Il1, 13) ^ il1l1lIi(iI11Il1, 22);
+    }
+    function I1ilil1(iIi11iiI) {
+      return il1l1lIi(iIi11iiI, 6) ^ il1l1lIi(iIi11iiI, 11) ^ il1l1lIi(iIi11iiI, 25);
+    }
+    function lilillI(i1I1lIil) {
+      return il1l1lIi(i1I1lIil, 7) ^ il1l1lIi(i1I1lIil, 18) ^ I11ilIli(i1I1lIil, 3);
+    }
+    function l1II1IIi(IilIil1l) {
+      return il1l1lIi(IilIil1l, 17) ^ il1l1lIi(IilIil1l, 19) ^ I11ilIli(IilIil1l, 10);
+    }
+    function I1llIii1(l1II11Ii, IIIlIi1) {
+      var IliII1I1 = new Array(1116352408, 1899447441, 3049323471, 3921009573, 961987163, 1508970993, 2453635748, 2870763221, 3624381080, 310598401, 607225278, 1426881987, 1925078388, 2162078206, 2614888103, 3248222580, 3835390401, 4022224774, 264347078, 604807628, 770255983, 1249150122, 1555081692, 1996064986, 2554220882, 2821834349, 2952996808, 3210313671, 3336571891, 3584528711, 113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291, 1695183700, 1986661051, 2177026350, 2456956037, 2730485921, 2820302411, 3259730800, 3345764771, 3516065817, 3600352804, 4094571909, 275423344, 430227734, 506948616, 659060556, 883997877, 958139571, 1322822218, 1537002063, 1747873779, 1955562222, 2024104815, 2227730452, 2361852424, 2428436474, 2756734187, 3204031479, 3329325298),
+        lI1iiI1 = new Array(1779033703, 3144134277, 1013904242, 2773480762, 1359893119, 2600822924, 528734635, 1541459225),
+        lIII1i1 = new Array(64),
+        l1IIlIi,
+        illI1IIi,
+        IIii1l1I,
+        llIillll,
+        III1liI1,
+        IIIliIi1,
+        IIil1Ill,
+        l1Iil1lI,
+        li11lll1,
+        liiIl1l1,
+        IIIi11ii,
+        i1iIIIl;
+      l1II11Ii[IIIlIi1 >> 5] |= 128 << 24 - IIIlIi1 % 32;
+      l1II11Ii[(IIIlIi1 + 64 >> 9 << 4) + 15] = IIIlIi1;
+      for (var li11lll1 = 0; li11lll1 < l1II11Ii.length; li11lll1 += 16) {
+        l1IIlIi = lI1iiI1[0];
+        illI1IIi = lI1iiI1[1];
+        IIii1l1I = lI1iiI1[2];
+        llIillll = lI1iiI1[3];
+        III1liI1 = lI1iiI1[4];
+        IIIliIi1 = lI1iiI1[5];
+        IIil1Ill = lI1iiI1[6];
+        l1Iil1lI = lI1iiI1[7];
+        for (var liiIl1l1 = 0; liiIl1l1 < 64; liiIl1l1++) {
+          if (liiIl1l1 < 16) lIII1i1[liiIl1l1] = l1II11Ii[liiIl1l1 + li11lll1];else lIII1i1[liiIl1l1] = ll11lII(ll11lII(ll11lII(l1II1IIi(lIII1i1[liiIl1l1 - 2]), lIII1i1[liiIl1l1 - 7]), lilillI(lIII1i1[liiIl1l1 - 15])), lIII1i1[liiIl1l1 - 16]);
+          IIIi11ii = ll11lII(ll11lII(ll11lII(ll11lII(l1Iil1lI, I1ilil1(III1liI1)), ll11lii(III1liI1, IIIliIi1, IIil1Ill)), IliII1I1[liiIl1l1]), lIII1i1[liiIl1l1]);
+          i1iIIIl = ll11lII(Iii11II1(l1IIlIi), Iii11iiI(l1IIlIi, illI1IIi, IIii1l1I));
+          l1Iil1lI = IIil1Ill;
+          IIil1Ill = IIIliIi1;
+          IIIliIi1 = III1liI1;
+          III1liI1 = ll11lII(llIillll, IIIi11ii);
+          llIillll = IIii1l1I;
+          IIii1l1I = illI1IIi;
+          illI1IIi = l1IIlIi;
+          l1IIlIi = ll11lII(IIIi11ii, i1iIIIl);
+        }
+        lI1iiI1[0] = ll11lII(l1IIlIi, lI1iiI1[0]);
+        lI1iiI1[1] = ll11lII(illI1IIi, lI1iiI1[1]);
+        lI1iiI1[2] = ll11lII(IIii1l1I, lI1iiI1[2]);
+        lI1iiI1[3] = ll11lII(llIillll, lI1iiI1[3]);
+        lI1iiI1[4] = ll11lII(III1liI1, lI1iiI1[4]);
+        lI1iiI1[5] = ll11lII(IIIliIi1, lI1iiI1[5]);
+        lI1iiI1[6] = ll11lII(IIil1Ill, lI1iiI1[6]);
+        lI1iiI1[7] = ll11lII(l1Iil1lI, lI1iiI1[7]);
+      }
+      return lI1iiI1;
+    }
+    function iIIIllii(iil11li1) {
+      var Ii1l11il = Array(),
+        iiillI1l = (1 << il1I11ll) - 1;
+      for (var I11IiI = 0; I11IiI < iil11li1.length * il1I11ll; I11IiI += il1I11ll) {
+        Ii1l11il[I11IiI >> 5] |= (iil11li1.charCodeAt(I11IiI / il1I11ll) & iiillI1l) << 24 - I11IiI % 32;
+      }
+      return Ii1l11il;
+    }
+    function IIliili(Iilll1iI) {
+      Iilll1iI = Iilll1iI.replace(/\r\n/g, "\n");
+      var IiiiI11l = "";
+      for (var i1iIiliI = 0; i1iIiliI < Iilll1iI.length; i1iIiliI++) {
+        var iiiliI1l = Iilll1iI.charCodeAt(i1iIiliI);
+        if (iiiliI1l < 128) IiiiI11l += String.fromCharCode(iiiliI1l);else iiiliI1l > 127 && iiiliI1l < 2048 ? (IiiiI11l += String.fromCharCode(iiiliI1l >> 6 | 192), IiiiI11l += String.fromCharCode(iiiliI1l & 63 | 128)) : (IiiiI11l += String.fromCharCode(iiiliI1l >> 12 | 224), IiiiI11l += String.fromCharCode(iiiliI1l >> 6 & 63 | 128), IiiiI11l += String.fromCharCode(iiiliI1l & 63 | 128));
+      }
+      return IiiiI11l;
+    }
+    function i111ll1I(II1l1il) {
+      var iII1Iii = iIlli11I ? "0123456789ABCDEF" : "0123456789abcdef",
+        Iiili1l1 = "";
+      for (var iiiI1Ii1 = 0; iiiI1Ii1 < II1l1il.length * 4; iiiI1Ii1++) {
+        Iiili1l1 += iII1Iii.charAt(II1l1il[iiiI1Ii1 >> 2] >> (3 - iiiI1Ii1 % 4) * 8 + 4 & 15) + iII1Iii.charAt(II1l1il[iiiI1Ii1 >> 2] >> (3 - iiiI1Ii1 % 4) * 8 & 15);
+      }
+      return Iiili1l1;
+    }
+    return lI1l1i1l = IIliili(lI1l1i1l), i111ll1I(I1llIii1(iIIIllii(lI1l1i1l), lI1l1i1l.length * il1I11ll));
   }
 }
-module.exports = getToken;
+module.exports = new H5st();
