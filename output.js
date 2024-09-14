@@ -1,49 +1,15 @@
-//Sat Sep 14 2024 05:20:33 GMT+0000 (Coordinated Universal Time)
+//Sat Sep 14 2024 05:21:31 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-let IllIII = require("ds");
-try {
-  IllIII.toString() === "[object Object]" && (IllIII = IllIII.DS);
-} catch {}
-function ii1li(IIll1 = 0, ll1il = null) {
-  let lilii = this;
-  lilii.now = function () {
-    return new Date().getTime();
-  };
-  lilii.ttl = IIll1 || 0;
-  if (ll1il) lilii.data = new IllIII(ll1il);else {
-    lilii.data = new IllIII();
-  }
-  let l1iiI = function () {
-      if (ll1il) lilii.data.save(ll1il);
-      return lilii;
-    },
-    ll1li = function (I11iIl) {
-      return delete lilii.data[I11iIl], l1iiI(), lilii;
-    };
-  lilii.get = function (l1iIl, illIll) {
-    let l1iIIl = null,
-      iiilll = lilii.data[l1iIl];
-    iiilll && (iiilll.expires == 0 || lilii.now() < iiilll.expires ? l1iIIl = iiilll.val : (l1iIIl = null, ll1li(l1iIl)));
-    if (illIll) illIll(l1iIIl);
-    return l1iIIl;
-  };
-  lilii.del = function (IilIl1, lIII1l) {
-    let IiII = lilii.get(IilIl1);
-    ll1li(IilIl1);
-    if (lIII1l) lIII1l(IiII);
-    return IiII;
-  };
-  lilii.put = function (llIIli, lIII1I = null, illIlI = 0, liIiI) {
-    if (illIlI == 0) illIlI = lilii.ttl;
-    let l1il1I = illIlI == 0 ? 0 : lilii.now() + illIlI;
-    var Iiili = lilii.del(llIIli);
-    lIII1I !== null && (lilii.data[llIIli] = {
-      "expires": l1il1I,
-      "val": lIII1I
-    }, l1iiI());
-    if (liIiI) liIiI(Iiili);
-    return Iiili;
-  };
+const {
+  H5st
+} = require("./jdCrypto");
+async function getH5st(iIiIl1i1, iIIIi111, Il1l1ili = "3.1") {
+  const l11lilI = Object.assign({
+      "appId": iIiIl1i1,
+      "version": Il1l1ili
+    }, iIIIi111),
+    l1lllil1 = await H5st.getH5st(l11lilI);
+  return l1lllil1?.["h5st"];
 }
-module.exports = ii1li;
+module.exports = getH5st;
