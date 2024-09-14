@@ -1,239 +1,1800 @@
-//Sat Sep 14 2024 08:04:17 GMT+0000 (Coordinated Universal Time)
+//Sat Sep 14 2024 08:21:07 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
-const _0xc41bd2 = require("crypto-js"),
-  _0x360ef0 = require("got"),
-  _0x5840cb = process.env.SIGN_URL ? process.env.SIGN_URL : "";
-if (_0x5840cb) console.log("🈯当前使用指定sign：" + _0x5840cb + "\n");else {}
-function _0x102910(_0x2540f8 = "") {
-  return _0x2540f8;
-}
-function _0x567588(_0x24d3fb) {
-  let _0xbf2c96 = [];
-  for (let _0x5c5382 of _0x24d3fb.split("")) {
-    let _0x54563b = _0x5c5382.charCodeAt();
-    _0xbf2c96 = _0xbf2c96.concat([(_0x54563b & 128) >> 7, (_0x54563b & 64) >> 6, (_0x54563b & 32) >> 5, (_0x54563b & 16) >> 4, (_0x54563b & 8) >> 3, (_0x54563b & 4) >> 2, (_0x54563b & 2) >> 1, _0x54563b & 1]);
-  }
-  return _0xbf2c96;
-}
-function _0x305d85(_0xea93fe) {
-  let _0x299f86 = Array.from({
-    "length": parseInt(_0xea93fe.length / 8)
-  }).map(_0x151d7b => 0);
-  for (let _0x4c62ab in _0x299f86) {
-    _0x299f86[_0x4c62ab] = _0xea93fe[_0x4c62ab * 8] << 7 | _0xea93fe[_0x4c62ab * 8 + 1] << 6 | _0xea93fe[_0x4c62ab * 8 + 2] << 5 | _0xea93fe[_0x4c62ab * 8 + 3] << 4 | _0xea93fe[_0x4c62ab * 8 + 4] << 3 | _0xea93fe[_0x4c62ab * 8 + 5] << 2 | _0xea93fe[_0x4c62ab * 8 + 6] << 1 | _0xea93fe[_0x4c62ab * 8 + 7];
-  }
-  return _0x102910(_0x299f86);
-}
-function _0x3e9cf7(_0xbf6f86) {
-  let _0x25f24c = [55, 146, 68, 104, 165, 61, 204, 127, 187, 15, 217, 136, 238, 154, 233, 90],
-    _0x577cdc = "80306f4370b39fd5630ad0529f77adb6",
-    _0x2ec9bc = Array.from({
-      "length": _0xbf6f86.length
-    }).map(_0x103950 => 0),
-    _0x1c8dfb,
-    _0x43bbc7,
-    _0x1f98e7,
-    _0x5d312f;
-  for (i in _0x2ec9bc) {
-    _0x1c8dfb = _0xbf6f86[i].charCodeAt();
-    _0x1f98e7 = _0x25f24c[i & 15];
-    _0x5d312f = _0x577cdc[i & 7].charCodeAt();
-    _0x1c8dfb = _0x1f98e7 ^ _0x1c8dfb;
-    _0x1c8dfb = _0x1c8dfb ^ _0x5d312f;
-    _0x1c8dfb = _0x1c8dfb + _0x1f98e7;
-    _0x1f98e7 = _0x1f98e7 ^ _0x1c8dfb;
-    _0x43bbc7 = _0x577cdc[i & 7].charCodeAt();
-    _0x1f98e7 = _0x1f98e7 ^ _0x43bbc7;
-    _0x2ec9bc[i] = _0x1f98e7 & 255;
-  }
-  return _0x102910(_0x2ec9bc);
-}
-function _0x26a0d3(_0x15d5f9) {
-  let _0x439993 = [[0, 0], [1, 4], [2, 61], [3, 15], [4, 56], [5, 40], [6, 6], [7, 59], [8, 62], [9, 58], [10, 17], [11, 2], [12, 12], [13, 8], [14, 32], [15, 60], [16, 13], [17, 45], [18, 34], [19, 14], [20, 36], [21, 21], [22, 22], [23, 39], [24, 23], [25, 25], [26, 26], [27, 20], [28, 1], [29, 33], [30, 46], [31, 55], [32, 35], [33, 24], [34, 57], [35, 19], [36, 53], [37, 37], [38, 38], [39, 5], [40, 30], [41, 41], [42, 42], [43, 18], [44, 47], [45, 27], [46, 9], [47, 44], [48, 51], [49, 7], [50, 49], [51, 63], [52, 28], [53, 43], [54, 54], [55, 52], [56, 31], [57, 10], [58, 29], [59, 11], [60, 3], [61, 16], [62, 50], [63, 48]],
-    _0x3496a6 = _0x567588(_0x15d5f9),
-    _0x330f39 = Array.from({
-      "length": _0x3496a6.length
-    }).map(_0x5504a2 => 0);
-  for (let _0x3deaa8 in _0x330f39) {
-    _0x330f39[_0x439993[_0x3deaa8][1]] = _0x3496a6[_0x439993[_0x3deaa8][0]];
-  }
-  return _0x305d85(_0x330f39);
-}
-switch (_0x5840cb) {
-  case "nb":
-    const _0x180303 = {
-      "nb": nb
-    };
-    _0xf1f6le = _0x180303;
-    break;
-}
-function _0x513e29(_0x115472) {
-  let _0x41b134 = [[0, 6, 0, 1], [1, 4, 1, 0], [2, 5, 0, 1], [3, 0, 0, 1], [4, 2, 0, 1], [5, 3, 0, 1], [6, 1, 1, 0], [7, 7, 0, 1]],
-    _0x1180e2 = _0x567588(_0x115472),
-    _0x53bfd5 = [0, 0, 0, 0, 0, 0, 0, 0];
-  for (var _0x30993d in _0x53bfd5) {
-    _0x1180e2[_0x30993d] == 0 ? _0x53bfd5[_0x41b134[_0x30993d][1]] = _0x41b134[_0x30993d][2] : _0x53bfd5[_0x41b134[_0x30993d][1]] = _0x41b134[_0x30993d][3];
-  }
-  return _0x305d85(_0x53bfd5);
-}
-function _0x139553(_0x147cc7) {
-  let _0x9d424d = [];
-  for (let _0x1dd74f = 0; _0x1dd74f < _0x147cc7.length; _0x1dd74f += 8) {
-    let _0x3004ae = _0x147cc7.slice(_0x1dd74f, _0x1dd74f + 8);
-    _0x3004ae.length == 1 ? _0x9d424d = _0x9d424d.concat(_0x513e29(_0x3004ae)) : _0x9d424d = _0x9d424d.concat(_0x26a0d3(_0x3004ae));
-  }
-  return _0x9d424d;
-}
-function _0x1fc00d(_0x266244, _0x1e6e3a, _0x3543e3) {
-  let _0x5055be = [0, 1, 2];
-  _0x3543e3 == 1 && (_0x5055be = [1, 2, 0]);
-  _0x3543e3 == 2 && (_0x5055be = [2, 0, 1]);
-  let _0x4464ec = _0x5055be[_0x1e6e3a];
-  if (_0x4464ec == 0) return _0x139553(_0x266244);
-  if (_0x4464ec == 2) return _0x3e9cf7(_0x266244);
-}
-function _0x3c12ab(_0x4e3389) {
-  let _0x5a949a = "",
-    _0x529b40 = [],
-    _0x2f4d42 = "";
-  const _0x20bfb6 = "KLMNOPQRSTABCDEFGHIJUVWXYZabcdopqrstuvwxefghijklmnyz0123456789+/";
-  for (let _0x43db03 = 0; _0x43db03 < _0x4e3389.length; _0x43db03++) {
-    _0x5a949a += ("00000000" + _0x4e3389.charCodeAt(_0x43db03).toString(2)).slice(-8);
-  }
-  for (let _0x11f980 = 0; _0x11f980 < _0x5a949a.length; _0x11f980 += 6) {
-    _0x529b40.push("000000" + _0x5a949a.substr(_0x11f980, 6));
-  }
-  for (let _0x18b694 = 0; _0x18b694 < _0x529b40.length; _0x18b694++) {
-    _0x2f4d42 += _0x20bfb6[parseInt(_0x529b40[_0x18b694], 2)];
-  }
-  if (_0x2f4d42.length % 4 == 2) _0x2f4d42 += "==";else _0x2f4d42.length % 4 == 3 && (_0x2f4d42 += "=");
-  return _0x2f4d42;
-}
-function _0x169d63(_0x1aa667) {
-  let _0x40762a = {
-    "hdid": "JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw=",
-    "ts": Date.now(),
-    "ridx": -1,
-    "cipher": {
-      "area": "CP8mXzLpCK==",
-      "d_model": "UwVubWvBDNLJ",
-      "wifiBssid": "dW5hbw93bq==",
-      "osVersion": "CJS=",
-      "d_brand": "WQvrb21f",
-      "screen": "CtS3DsenCNqm",
-      "uuid": _0x3c12ab(_0x1aa667),
-      "aid": _0x3c12ab(_0x1aa667),
-      "openudid": _0x3c12ab(_0x1aa667)
-    },
-    "ciphertype": 5,
-    "version": "1.2.0",
-    "appname": "com.jingdong.app.mall"
-  };
-  return encodeURIComponent(JSON.stringify(_0x40762a));
-}
-function _0x28f2ff() {
-  var _0x54ef4c = new Date().getTime();
-  typeof performance !== "undefined" && typeof performance.now === "function" && (_0x54ef4c += performance.now());
-  var _0x1ba3e9 = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (_0xaeb4bf) {
-    var _0x509987 = (_0x54ef4c + Math.random() * 16) % 16 | 0;
-    return _0x54ef4c = Math.floor(_0x54ef4c / 16), (_0xaeb4bf == "x" ? _0x509987 : _0x509987 & 3 | 8).toString(16);
-  });
-  return _0x1ba3e9;
-}
-async function _0x137505(_0x2ba192, _0x23c5e1, _0x18e184, _0x54c8e1) {
-  if (_0x5840cb != "" && _0x54c8e1 == undefined) {
-    let _0x531314 = await _0x360ef0.post(_0x5840cb, {
-      "json": {
-        "fn": _0x2ba192,
-        "body": _0x23c5e1
-      },
-      "retry": {
-        "limit": 1,
-        "methods": ["GET", "POST"]
-      },
-      "hooks": {
-        "beforeRetry": [(_0x6381c8, _0x3b54bd) => {
-          if (_0x3b54bd) {}
-        }]
-      },
-      "timeout": {
-        "request": 30000
+const proenv_0x1da8 = ["bWrCo8Oiwp/ChlU=", "w5Q3ShJp", "e8Kkw7xf", "w4QsYjXCtsKJ", "XMOHTw==", "woEfw53ComI=", "My3DucKWw53Dlw==", "PsKWw4bDkiXDl1jDqcK9Q8OD", "wpHDmcKDwrrCug==", "w6cKUynCmw==", "wrYow6wTw6oGWg==", "w4DChcOowolV", "w75Vw5vDiHM=", "QG0zwqnCmQ==", "w5s1Ow/Dg8OeICtoXiDCkWE6wrXCsMKbZx9seMOLbg==", "wqUow6cCw4EWXWI=", "DcKJw5c2w4gqw4bCtw==", "w6TDohBLwrjCpA==", "Oj/DncOewo0=", "wqgbw5Iyw5Y=", "Iht2w5BS", "CcKJw4onw4Es", "w4UhfjDCk8KZ", "e8Kpw4FdQQ==", "LlrDvQ==", "ewLCtBQ=", "woR4woQfJ2w=", "w5wJw7zCp1PCgA==", "w6klw4PCo1w=", "d8K/bVF6", "wqtoFcO+C8KYwr/CmQ==", "PBfDv8O5", "w7LCtCgZfw==", "cHrCpMORwp/Ckw==", "wo4Kw4DCsmQ=", "wrDDmMKiwo/Cqg==", "wokzCMK7bg==", "w5fCicOgUsONbA==", "w4IgfCXCtcKIw4A=", "w5kuVhtZwoTDhg==", "w5JEw7rDkF4=", "w6QxBhrDgQ==", "wptIw67Du8K0WwXDnA==", "DMKAw5fDqRvDpUHDrQ==", "MEQ4wpLDumI=", "wpZkMQ==", "BmzDiDlz", "w77Co8OdwolQ", "wrkDw54rSA==", "HcKqTsOBaCQTGhPDn0ALwrTCsUHCn8Oiw4XDinNCJcOVwrvDkMOZJMOUchPCmcOECsOpw5Y=", "BMKuJsOvYQ==", "OXzDiBxc", "w5sYw5vCuHcHw4DDr8KawrDCvsOU", "wo0Qw4rCs2w8w48=", "w5h9w7LDoVE9w7Y0wr8=", "w5UuRA==", "w4YSw5XCuHbCiMOnFw==", "V8OndQ8AwrESUS8=", "PMK4w5ohw4E=", "wq8yLQ==", "w4jCiVLCusOK", "ACpsw6RK", "wqQ0LMK7ccOBw6XDhX0=", "dFfChsOTwrY=", "w5nCrH/CiMO2", "V23CtB8Lwqw=", "PMOpbcOGYw==", "w7rCjMO4wok=", "wrXDk8Kowo3CpkE=", "ZhLCvBTDvUrCvg==", "w458A8ODMcKhwqHClGMowow=", "w4UuDT/DgMOe", "wq4mw7EsUw==", "ZMOzbQ==", "BcOzXcObRsOQCcOAw7w=", "E0LDiA1aDkzCgsOD", "w5/CoiA=", "bndnwoTCm1Izw6c=", "FsKBw7nDvzc=", "P8KkR3Mm", "w4UzIDzDkcOfMRU=", "wq0HIcKeUg==", "eMKkw6FuZMK0w4w+wrkmw5Z/w6/Cmg==", "w4vCnMOkScO7w4oGDQ==", "wqNIwow0Lw==", "csOiQHkjDSAWM0/DrzVnwqDCjA7DlcKqwqscPsKbw67CsDFmTTTCs8O7dsO/w7rDocKPw5o8wph1AcKvw5cyw6tOA8OOCMKzQMOzTycmwrbDrx3Dm8KXwoMFEMKDw4wWwrFYdMO2worDqwRYS8KZWcK5GcKhMUYBYMKSwpc8WBfCkz9bYw==", "wo7Dj2fDscOZ", "w7wLdhPClg==", "w6keDB7DqsOpETV+Yg==", "wqZaw4XDp8Kc", "e8Kjw4pFcMKyw441", "w58lcyfCtA==", "Cl3Cl3V9", "w6lSw6gcN8K7w5BrXw==", "wpMOw6kAw6Y=", "44CS5Lqz5LuL6LaC5YyE", "NMKVLit2", "5Lqq55OE5aSu6LS75aWg5aW2V+WOneiDs+S6neeTkuWkpOaVguS5hO+/oeiupuahpuacpuS4rOeQp+eZsuWSoeWOiuaaruWQoOaPmeWGg++8gOmgn+W5ruaZquWTrui1jOS5lMKUw4Eq5b6a5Ym36YC55YWj", "wrQ1MsKQQ8OHw73DhXdIw6tmN8Os", "wrDDuMKLwqzCqA==", "w5FbJcOoCw==", "w5JDw6jDgEw=", "OQ/DgcOFwrM=", "wocAw4gpw4Q0b0hg", "T00nwqHChMKowo0=", "wqbCg0E/w6nDjGbDgw==", "VlZswp7CjQ==", "w4MOw7Q=", "cXfCuMOUwrrCgw==", "w5omcTLDng==", "KcKiw7YTw4Y=", "EMKKJwl+", "5beW6Yee572p", "w5wDw4PCuH8=", "w4oZw7rCow==", "woXDk33DhMOr", "w4UhfjDCncKUw5JUw7E=", "G1kVwoXDlw==", "w43Dh8KjK8KScl0gbcK1wo5jw73DiMKd", "ahUFwojDng==", "PMK/CCFL", "aFHCgMOTwqM=", "YMKOXS8P", "w7TCqkrCrcOLwotEwqM=", "w6EVw7XCv1w=", "44OJ5Lia5Lua6LeM5Yyl", "6K605YuP6ZuW5oep5Z6nU8KKPMKRw5fovp7lh4Lmo7bkv67mlZvlh53lr61h5buK6K+P6YGw6Lyg6ISc5p6z5Y256I6x5Y6zw6nDrFfCh0dn", "w4smdDzDsg==", "JzVTw51P", "SlEM", "fcOOfsOzwrJtAcOD", "J8KxIglSwp4=", "w7x5w57Dhks=", "wqXChHUpw5w=", "dXx3wpjCgVglw7E=", "wqI+PsKmU8OBw6XDkFFb", "wonCqUEAw64=", "wp4DwqnDt3nDtg==", "wpcCwrg=", "w60LBBvDjg==", "wp1vbWLCisKL", "bRvCtBXDtkzCm8Ocw7hqcsKbOw==", "H8KdAsOyT1cMG0zDsQlUw7HDrQM=", "w7xPw7YBPMKu", "P8KIT2gs", "aHwFwqHCqg==", "wqkIw50+T8KM", "KTDDgcO7wpY=", "w7RJw60=", "LcK9OQdX", "wq8kw7IFw6QUSw==", "MMKnw7bDlyE=", "fxIVwqLDmw==", "XcKHYA==", "U8O7UA==", "5LmT55GG6I6F5Y6o5aSQ6Leu776s6Le36L+c5q2o5q2z5our6KCE77yH", "X2DCmBEt", "VF8FwqrCjMKs", "F8OkTMOXW8OELMOJw6I=", "w79Dw50WHw==", "wo4FZMKAwpg=", "w7YwTS3Dqw==", "w6bCql/CisOW", "w7bCgGDCl8Od", "wqQCesK6wpY=", "VH3Crj4TwqVz", "WMKGYx8V", "w74XURXDjw==", "dmzCiCkv", "w7jDnzJnwpk=", "aG5ywq7Ctg==", "RcOdQTo=", "wpbDh8Kj", "YcKlw7paTMK6w403", "LQFtw6dww79Bwpo4CA==", "fsOUeg==", "w7zCpsOzfMOe", "f8OjW8Ovwpg=", "wrNywpMUDg==", "EsK6w4w5w6E=", "woFTw6nDmsKK", "O3DCqHdd", "w5DCqsOQSMOb", "w4U1Wxo=", "woPDqV3DhMOVw69G", "VG7Dq2oZ", "w7vDvcKeBMKZVw==", "w6Qxw5vCmk8=", "Qm3Dnmkv", "FcKnB8OVSXoN", "JWzCt2ZJUsKSGsOQPw==", "emvCuR0PwrA5DEcBCcO0E8OhKA==", "VFsYwr7CjMKvwpDDuA==", "w68gdxHClQ==", "PA7DrsOpwrU=", "wpZ/AsOkIsKGwrzCmnkUwpvCuw==", "wp0bwrjDtFM=", "w5wtTjPCssKSw4Rnw6vDosKpFMOLXsOzHw==", "EGLDjwtv", "w47Djg5xwqU=", "w47CisOMQcOjw44=", "w4s0JSTDpsOaMyJaQi7Cs0s8wrTCsMKG", "KMKha3c8BQsLWwzCuA==", "w7VIw7bDm08=", "DMOqYcODQQ==", "44Cg5LiE5Li06LW45Y+K", "w6XDqAM=", "w7vDvRJ0wr4=", "R8OaYxto", "5LmB55Op6IyV5Y+w5aam6LaD772l6LaJ6L285qyA5q2G5ouS6KK177+b", "w58qw7fCknU=", "w5fChMOnRcOSccOZ", "w77Coj0adH3CksOBfwgsHMKeSsOKYxfDi8KFIMODAcKrw6B3wrzCgEFcbMKaZ3otWCHCvVZtRi0+OTnDrGfDvhVaAG9kdSITTVLDtcK9VwAYw7A2K8OUwo07FcOCw5vCuFB7IcKsW8KBJGgkwpPDkR3DsAhzwqRaEMOkwo8CHnHDiUJ7BcKJwonDqSlvf0xywodjw6xv", "w4PCuwQXcA==", "BHIIwqjDvQ==", "w5lSE8OPLg==", "w6TDkcK3A8K0", "V8OBTip/LcKAVsOCw6nDlXTCpMObbMKtaA==", "a8KAw4pZZw==", "woQkYsKowoo=", "wpvDr1c=", "FUXDjzZ4", "wrVswrgpEg==", "J3vDgRNu", "e8KpYi0d", "T00lwqHCh8Kk", "w7Vzw7DDrw==", "w7YwRzdl", "w4EKZSlu", "woLmtq7liZnlnYTlnpAJ", "w6ImdTPDlw==", "QcKMTnZAXTfCrWzDpFjDrw==", "FELDghM=", "a3HCs8OBwos=", "NcKcw5U=", "OMOEQMOIfA==", "W8OMSi9o", "BGQ6wpXDow==", "UFLCghYw", "wp8Jwr3DgWrDo08=", "YWvDj1k1Rg==", "w7XChcOsXMOUfcOOIlo=", "w7luw74aNg==", "w7/Dgh1twrM=", "VVYEwr7CisKl", "bxTCqRnDrlHCucOAw4N9", "Q0YCwro=", "w7MvXRVIwq7DqkAp", "w6PDoztQwr/Cr8OewoDCj8KDd8KfM8Onw6x7", "LsK6KVII", "5aam6Z6T5puz5aW85Y6Z6Z+W6Ke65aa15qyy6K6w57+dGsOUQcOOfcK8wr7Dq8KKwpwcScKHw6LCrsKRw57CicKuJcO9wod9MsKPUBfmi4noo4/kupXmlIgH", "AMKrBcO2ZGkONknDmhxpw7/DuxjClsO4", "LsKkNyVR", "wrgrw6MLSg==", "IF83wpLDqn/CkWnCr8OdfcOC", "H3vCmV11", "fnDDiQ==", "w6A5USnDlCA=", "w6nCmsO1wpRO", "w5DCvz4DbH7DnsKEOQ==", "wqdhwokqPw==", "wo97GMOuOMOP", "w6E0Wg7DsjbCrg==", "w5HCm8OQT8O5w4EAHMOC", "w6jCoUnClMOr", "VWp5w7cYw7Auw6BVesOeF8K9", "wpMfw4fCog==", "OBHDvcOowoLDsMKNIw==", "Ni/DpA==", "w5fChMOjwr5s", "w6nCq33CvMOBwq1M", "w6nCq3rCtcOMwoZPwrc=", "w549ZTDCqcOHwpsPw6PDtMK0ScO5GcO9CMK4Nwp9d8KDw4HCuTXCpsK1NTEjw5rDoQfCow==", "Q8O6YRIswrccczd6w5JkwpFXw4Nhwqc=", "w6vCucOHRcON", "AVbCp2VR", "D8Kfw5oCw7o=", "wpLDuFnDlQ==", "Tlo7woPCsQ==", "DMKNw5Am", "fBIxwqfDtg==", "w5QNwr7DgmLDoBdlwqvDl1kKwqDDt8OMwpPCmsK+DsKPwpzCvQ/DhSd7wok+w73DtzIdQ8KBw5DCnMO6AxIxaMOaEHU8T8OQwr8+wqgWasOyR2zDgsKLc8Kow6nCo1TDrwkSCcOXPMKUw68z", "WhnCkyTDgA==", "cl7Cvxsl", "dsOfdMOs", "wro6TcKdwozConPCs8KQw5Aewr7DrcObSk4f", "Lg/DkMO2wow=", "5by+5Ym1w5kW", "e2/ljYHog5DltrLnu7roo4LpmL3libTvv77Clui/luWPh+WLg+mQveWGvuaete++nO+8o++/gw==", "aXZz", "wpDmiKfoob7kuoXlioDlv4nlupg=", "wpLDpXfDgsO8", "UcO5URRR", "BMOmQcOWR8Oa", "YQLCqTbDtFnCqg==", "TcOoScKoDCLlvanlprnjgLjkuILkuaHotJ3lja0=", "eGXDlGoq", "NcKqEsOKcQ==", "w7/CiMOiwohOwpw=", "wqU3w4PCkXw=", "Kl49woPDt17Cgw==", "w6UqDDvDpw==", "XcOCVjU2", "B8K4W3Ir", "CsKtcHUjCQw4Sg==", "C8KtBA==", "wpMMw6AHw60=", "DjLDtsOFwq0=", "Z1DDrFsz", "aALCsxPDrFHCosOXw4N9", "Yl5CwqrCpQ==", "ZDPCsgHDng==", "w5bCozE=", "fwQ3wqPDr8KpasOi", "EcKrIMOVag==", "w7d3w7PDrUww", "w5vCssOHZsOL", "QMO+VScY", "w6Yww6bCnW4=", "DMOKScOhWA==", "KcK4wqQ=", "bcKmw7RAag==", "KcKnw4XDrRI=", "wokxw5URw60=", "w6bCqXjCvg==", "wq4FeMK/woE=", "w5EwYAps", "wrIgw6cgw6o=", "C3sQwpDDnA==", "V8O7aBYnwrgdWA==", "w5XChcOsXMOUfQ==", "C8KnDcOlUmA=", "wq8uw6bCm0E=", "w7jCmMO4wpk=", "RcKHSxUaw6vCiw0TOcKx", "MWMUwoPDng==", "ecK8Uyoyw57CqwEqEw==", "JMKtDMOpT20jNg==", "Km/DlRNq", "JcKwDcOTaQ==", "YU5Qwo7CnQ==", "TmzChsOtwqk=", "UsOcYjlp", "w6gNw5HCmVQ=", "w6spRiHDpTzCssKXCsOtw5DDmC7CssOEwrBjw7wDwoLDjXjCi11KdzRrVgPDtxXCoyLCmzpvOMKOwrU=", "w7stQxHCig==", "w4YPw7fCsmI=", "AcK3DcOhUmEGHGHDig==", "dnDCgsOUwoPCgkDDrsOlwrkQ", "w7ZJw70=", "KTtNw4NZ", "woApw6PCpXw=", "bHIbwoXCgA==", "wqsCwqLDhHI=", "w6HCgMO4wpdD", "esOheyd5", "S2jCusOtwpU=", "w71Dw64ROMKow5g=", "w6rDqABG", "wq4SHsKGTg==", "worDpcKIwo3Ciw==", "w5oEGhXDqA==", "w4rCq1vCrcOy", "J2PDjS9v", "bBEmwr3DkcKlecOywpIKKgbDosKowroWKgdxwox+McKsdMKyYEPCnU89AMOfw4U=", "wpFIw4DDhsKZ", "fBbCsxTDt1U=", "G13CjVJzcMKJMQ==", "wrPCnEE6w7I=", "CMK7w7c6w6o=", "LAzDusOowrPDpg==", "KcK/PQ==", "w6YuMRjDsw==", "5pyb6Yal572p", "TU7CuzEl", "PsKqZ0EtCQs/XRbCu2VFwrfCmT3Dj8KtwqpoYcOKwrA=", "YXFBwoXCmQ==", "wrA1JcK/bMOM", "McKdfm4jMxobaiHCoHphwqfCgw==", "w7Fgw4TDiVw=", "w7oMDQXDpQ==", "wrIZ5Y2c6IKn5beS57iu6KKu6Zmu5Yqc776rTOi9jOWPqOWJoOmSkeWHg+aeiu+/ou+/pO+8mA==", "w6LCnsO1RsO2", "wqUkw7U/w7UgWmBaesKL", "HkjCjXBT", "w7lJw74Q", "wpEDwqrDlw==", "XmbCrA==", "w63CpGHCocOX", "w5jCux8nXQ==", "w47ClcONfMO8", "wpUFwqjDhknDpU1SwqLDjEgHwqjDm8OTwpvCsQ==", "AVfChA==", "NmI0woXDgg==", "M8K/JBY=", "RsOlW8O/woo=", "wrU2SsKNwqvCsWc=", "w4vDgcK8BsKx", "fcKpw6pBbcK1w5M3", "SEPCjSoR", "VsOHbg1S", "w7UXUR3Dsw==", "wrMVIsK5Vw==", "w6fCn8OIwr5G", "ZTLCkRPDlg==", "w6zCqn4=", "w6taw7XDvEo=", "SU/Cn8OpwqY=", "wpsfwovDnG8=", "TcKZZmJo", "S1nCk0Z/ZsO9JsOgCcOfw4pZwr9xDm7DlBLCjcObJwdXbMO1w6/DkcONdmHDtzjDpjbCssOOw61sw6NCMcKkw6zDsl7Dink9SRZGC8KRPGBLwqoFFMOJf8OJwq03EsOWPmF4Yg==", "wqsyw4cZw6kfQXY=", "w4XCpsOYwotx", "w7dHw64WMQ==", "RxLDiRw8KMOqf8Ki", "R+aKpeigr+S5ueWKh+W8iuW5ke+9s++8qe++rw==", "w5YDbAbDnwXCjsKwIMOQw7nDtRPCmcOo", "w5wvVQ==", "w5TChsOkTsOO", "w4E0WDzDryHCuA==", "IsKBLMOMaFosIW3Dug==", "Y8KAdjI6", "w6LClB8law==", "AcKdAix1wqkbw6fCu2HCh8OA", "w71Pw7wBG8K9w55JR0ASYjtGd8O+wpA=", "woFuw4zDjcKH", "QsKAaAoqw6fCnzoB", "Y8K7UmFo", "wpI7EMKaRw==", "SMO8YA==", "CcKjDsOn", "w4c+WirCkA==", "w5fCicO3XsOLccOJEUvDhBw=", "SsKIw69ZSg==", "KsKDw57DsiE=", "fsKCZ2t+", "w4XCisOW", "JH3Cj2V+", "w7rDtMKfEMK/Xg==", "wqvDl8Kowo7CvUQ=", "EsKbw6TDtAA=", "D8Kfw5jDigE=", "VAgwwoDDtw==", "w4YmYjQ=", "wrwAw5UuYsKAYnrDi8OTDcOZw4wVeyLCmw==", "w5rChcOk", "FcKAw6PDkg8=", "w6HCosO0ecOL", "w77Cu8OCwqtt", "VMOaVCwK", "PVzCj1h3", "6I665Y63H8Kh5aaJ6Lej", "w7fCncOAecOe", "dk3ClxMN", "PzfCjMO6w5XCuhjChMKsw6wJw65m", "w4gIw7XCo07CjcO8DGs=", "dXrDmmQwZh0MNsKHw4U=", "fsOcTjZ7", "5b2i5YqlPVo=", "w6nCmsOpwpFq", "wpwNwqPDlw==", "ZnDDokI3UBsuI8KBw5M=", "woULwr3DpUU=", "w6XCvXDCrQ==", "w4fCrMO0wqpS", "wqYYwrjDg0A=", "E8KxAMOScQ==", "TsKKc1Z5", "wpcUwqfDhg==", "w5dOw6MBLg==", "wrrDgMKzwp/CoQ==", "wqBRwqE6Aw==", "SsO8cA==", "w6kvGsKVw7vCvyTCi8OCw5hN", "w50Aw73Cs3XCiQ==", "VcKfYxMB", "wqrDnsKpwprClUDDjcORRg==", "LsKreWoIDRg2bwrCtUdvwrHCmD3Dkg==", "w6TDtAM=", "YsK8IgZCw4Y=", "w7rDtgd2woM=", "w6lRw6fDoVs=", "ZMKbYggjw6/ClCs=", "KnrCrH93", "KcKtw6lBa8K/wp0hwr4+w7VIw63CtQc/N0cpw5Qqw4EyC07DlzjDk8KdwrLDqMKVwrvCtMODXC8Mwqc7w558wqlVwoUrXR7DuC1YLycAEsKle8Kowq3DrMKnwrZQwrLChMOuwrwNTMOWAQ==", "CyNWw4pW", "YXDCs8OB", "w7oieDbDsSjCpcKY", "Z8Ocfxps", "44O45LqM5Lqd6Lat5YyK", "IGY7wrTDvQ==", "OsKcw5bDvg==", "cMOqbsOgwq0=", "LwrDtMOkwr8=", "w7UQfStX", "wrcGw5Q=", "dMOOe8Oswr5tC8Oiw5XCtGLDqQU5YXrDkA==", "UcO6RC16", "PBTDssO5wqjDocKoJcKawqLDhcKzRg==", "dMKrSDQjw5zCvB03Hg==", "PsK3GyxJ", "w71+w7LDpUo=", "5LmB55Op6IyV5Y+w5aam6LaD", "TcO9YwMWwpkd", "w7MNZyjCkg==", "UlcGwqvCjMK0wpc=", "QcK2w4xVZg==", "VsO1T8OHwr5NKMO5w6bChVDDqy8ER1M=", "wpEQH8KDQA==", "w4lHw6/DoF0=", "Q8KNZgg6w6HCiyo=", "wppBw6/Dr8KSWA==", "w73ChQQ8cw==", "VE7CmcOxwrI=", "P8OwQsO7Tg==", "wpQ5w7YUY8KgV3rDtcOmPMOCw7Y2XAHCt8K6wrpMw71w", "wqXCgls=", "w7fCtl/Ct8Oo", "CEDCikI=", "wqdSw4rDr8Kf", "w4YiWyvDkyXCp8KK", "ZE9mwrrCnA==", "PhvDr8O1wrDDvMKKOcKhwrU=", "wpzDtmjDtcO/", "w5Ulbh/DvA==", "MkM+wpDDgQ==", "w6TCmcOMVMOd", "wqrCiXQcw7M=", "w69pw5gDKg==", "EcOiWw==", "wq5VwokvKQ==", "OXkYwqDDig==", "wrdQwoc8IA==", "LsKbw4rDhDHDtk3Dv8KaXsOfTcOsasK5w6k=", "ZHZgwo0=", "w49Gw7fDoX0=", "w4rDkylRwrY=", "w717w7PDq1Q0w4U=", "ScONfsOKwpM=", "w4kDSDPDiA==", "woR5AQ==", "WcKhw45TTw==", "wqsbbcKuwqs=", "fMOscRR1", "P8KKRXka", "X8OKQjteOA==", "w780UD7DqSw=", "IUQTwoHDmw==", "w55Aw4/DlXoZw7gvw5/CucOrwpzDosOdXw==", "EsKfw7c9w4k9", "V2fCvQ==", "fQfCsRnDrA==", "wpMWw5bCiXMWw53Dk8KcwpbCqsKhwpooeWrCrinCjWnDjsOfesKcw4Jvw6I=", "w4UFw4zCpHLCi8O4J2dfaAHDo8Ktw5pl", "wqjCmFkjw7XClnPDlcOnwrFvw4LChMOKUnJO", "w5XCt8OBwppP", "CkjDiTh8", "DMKEw4ENw4o9w7vCgMKSRCAbw6vDgcK9TMKbw6rDhMKIDMKQw6New5nDs8OX", "V8OPW8Oiwp4=", "BSNaw5FQ", "f0ZlwpjCh2kzw707AcOLEm0kMw==", "wrUGw4Q=", "woXDpUPDlMOWw64=", "w4E6Vy7Ciw==", "F8KgBsOJdg==", "wrwMw4cOZw==", "d8Ktw5xycg==", "wpEAwovDn0w=", "NFghwrnDq2PChDPCiMOMYsOXw7dpBCw=", "wqQIEsKeXw==", "w6nCtXY=", "S3bClcO2wqM=", "fcKpw71mbcKpw4Q=", "acKjw6t0Y8K4w4g=", "wqvDk8Kiwr3CvVvDjw==", "K8KYw7fDvjo=", "N8K2IhJywp8=", "w6XCn3/CocOt", "wrMBw70XVA==", "dcO+biwh", "6Zap6K6v56CzTxvDqw==", "SHbDnG4O", "5Lmj55OD5aSo6Le85aaT5ae4AuWMq+iAouS4hueSv+WmiOaUvuS6qu+8quisgeajq+adiOS6kOeQmueaveWQheWMvOabm+WSl+aPjeWEuu+/vemikuW6qOaboeWQlui2k+S5m8O/wop+5by55Ymd6YOK5Yeo", "w4QaLh7DhQ==", "FMK2AsO2U3s=", "w7LCgsOFTcOf", "XkbDnEQN", "fsOGacO7wpQ=", "w4p2E8Ov", "w6U0UD3DuDbCg8KL", "dDnCjwnDsQ==", "wo1Yw6jDvw==", "KcK7PhFawpw7", "w50ZASbDpw==", "JcKteA==", "w697w7DDr1ctw4g=", "w7QgdyXCvQ==", "w6DCgiI1YQ==", "wrg8woXDuFE=", "w4fCohIDaHTCgcKtK1V5", "fHrDi0kBWQ==", "F8KKaB4UwrM=", "wok7w7QoUw==", "5ba76YaP572x", "G8KMUF8h", "JsKKdm0Q", "woEEwqHDgkLDoA==", "wqXCqEQew54=", "wqrDnsKpwprCm00=", "w7NIw74QIQ==", "w4IcXyjDtQ==", "BEjljIzog4vlt6Tnu43ooavpmIXlir7vvarCj+i9kuWNteWLpumShOWHp+adlO++tu+9vO+/oQ==", "w6RKIsOYAA==", "Tkofwr7CkMO7w4zCssK2wovCtsKvw5FtbMKmVCpdDsKTEQ==", "a8OFTzMh", "6YeE57+p5LqH55Cl5rK3w7rCjg==", "YQ4x", "w7N3w7zDrl0qw48=", "S8OOUcO7wqQ=", "fcOyLA==", "wphxw6TDqsKW", "w4HCgMOGQw==", "w6xzw7TDvg==", "OB3Dr8OVwrbDhsKKIcKcwqTDnw==", "w7gzUy3ClA==", "RzgCwqjDlA==", "wpdXwrk4HQ==", "w69oMsONGA==", "T8KcH8OZADc0Ww==", "w693w4XDpns=", "wptqwo0=", "w6jDpBBKwqHCqcOawr7Cr8KB", "WmjCncOBwpw=", "w7pxw6nDo04xw4gJw5jCjsOW", "I8Kaw6TDlSc=", "Z8KgTDsm", "w5gHXzBA", "wrXDmcKh", "w4LCrH/CvMOe", "w65gw7E=", "acOGRChE", "wqcRGcKnQA==", "wrg9XQ==", "I8K3KxZ/wp4tw4I=", "5LiU55KG6I6H5Y235aaL6La/", "w7Nmw6nDuktiwpNfw6zCjMOTw6fDisKgYcKIwpjDs2cQw4zCiMOlwr0iw4oUC8K6wp1sQcOUw58=", "OsKyc3c+", "JgBMw4Z3", "A8Kzw5giw4QHw6rCusKedCQ8w6/DicK2", "wqoyQsKd", "fR/CsgDDkVw=", "L8Ohwrk=", "dMKuc0tr", "CVXCsXdg", "XcKYwoQ=", "5p+36YSe572F", "PsKvw7Ycw6MKw4rCgMK/fw==", "w6fDghRswrU=", "wqRxwpszHw==", "wrlPwqIuBw==", "VUoZwqfCjcKmworDu8K8", "fsOyfMO0wo4=", "w7rCs8OLbsOE", "LAnDuMOJwpI=", "w4spEAnDgg==", "wo4aw5YoDcKgYlvDhMOT", "wqsfw7A+SA==", "b3RCwo/Cow==", "HMKjw73DjiM=", "wowic8KdwoQ=", "LR3DqMOpwqrDoQ==", "EDpaw5FGw5V8wrEFJMOaS8OsGV7CjXbDr2VAwqzDt8KQwqwUBF8LwqbDmsOBwp8F"];
+const proenv_0x3038 = function (_0x1da8fb, _0x30385a) {
+  _0x1da8fb = _0x1da8fb - 0;
+  let _0x3000f4 = proenv_0x1da8[_0x1da8fb];
+  if (proenv_0x3038["KKFKRP"] === undefined) {
+    (function () {
+      let _0x1b9fc5;
+      try {
+        const _0x491d38 = Function("return (function() " + "{}.constructor(\"return this\")( )" + ");");
+        _0x1b9fc5 = _0x491d38();
+      } catch (_0x4a4ffc) {
+        _0x1b9fc5 = window;
       }
-    }).json().catch(_0x13b00e => {
-      return console.log(_0x13b00e.message), console.log("指定sign获取失败,请检查！\n"), "";
+      const _0x570451 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+      _0x1b9fc5["atob"] || (_0x1b9fc5["atob"] = function (_0x3c1fb2) {
+        const _0x465eef = String(_0x3c1fb2)["replace"](/=+$/, "");
+        let _0x258208 = "";
+        for (let _0x25c76c = 0, _0x231631, _0x5c152c, _0x406153 = 0; _0x5c152c = _0x465eef["charAt"](_0x406153++); ~_0x5c152c && (_0x231631 = _0x25c76c % 4 ? _0x231631 * 64 + _0x5c152c : _0x5c152c, _0x25c76c++ % 4) ? _0x258208 += String["fromCharCode"](255 & _0x231631 >> (-2 * _0x25c76c & 6)) : 0) {
+          _0x5c152c = _0x570451["indexOf"](_0x5c152c);
+        }
+        return _0x258208;
+      });
+    })();
+    const _0x264e6f = function (_0x355b18, _0x169b80) {
+      let _0x4d511c = [],
+        _0x487ed9 = 0,
+        _0x12810b,
+        _0xe92619 = "",
+        _0x16b870 = "";
+      _0x355b18 = atob(_0x355b18);
+      for (let _0x57ea32 = 0, _0x388659 = _0x355b18["length"]; _0x57ea32 < _0x388659; _0x57ea32++) {
+        _0x16b870 += "%" + ("00" + _0x355b18["charCodeAt"](_0x57ea32)["toString"](16))["slice"](-2);
+      }
+      _0x355b18 = decodeURIComponent(_0x16b870);
+      let _0x136de3;
+      for (_0x136de3 = 0; _0x136de3 < 256; _0x136de3++) {
+        _0x4d511c[_0x136de3] = _0x136de3;
+      }
+      for (_0x136de3 = 0; _0x136de3 < 256; _0x136de3++) {
+        _0x487ed9 = (_0x487ed9 + _0x4d511c[_0x136de3] + _0x169b80["charCodeAt"](_0x136de3 % _0x169b80["length"])) % 256;
+        _0x12810b = _0x4d511c[_0x136de3];
+        _0x4d511c[_0x136de3] = _0x4d511c[_0x487ed9];
+        _0x4d511c[_0x487ed9] = _0x12810b;
+      }
+      _0x136de3 = 0;
+      _0x487ed9 = 0;
+      for (let _0x2e56df = 0; _0x2e56df < _0x355b18["length"]; _0x2e56df++) {
+        _0x136de3 = (_0x136de3 + 1) % 256;
+        _0x487ed9 = (_0x487ed9 + _0x4d511c[_0x136de3]) % 256;
+        _0x12810b = _0x4d511c[_0x136de3];
+        _0x4d511c[_0x136de3] = _0x4d511c[_0x487ed9];
+        _0x4d511c[_0x487ed9] = _0x12810b;
+        _0xe92619 += String["fromCharCode"](_0x355b18["charCodeAt"](_0x2e56df) ^ _0x4d511c[(_0x4d511c[_0x136de3] + _0x4d511c[_0x487ed9]) % 256]);
+      }
+      return _0xe92619;
+    };
+    proenv_0x3038["IrBPGA"] = _0x264e6f;
+    proenv_0x3038["QSWdWj"] = {};
+    proenv_0x3038["KKFKRP"] = !![];
+  }
+  const _0x445a03 = proenv_0x3038["QSWdWj"][_0x1da8fb];
+  if (_0x445a03 === undefined) {
+    if (proenv_0x3038["BngLTd"] === undefined) {
+      proenv_0x3038["BngLTd"] = !![];
+    }
+    _0x3000f4 = proenv_0x3038["IrBPGA"](_0x3000f4, _0x30385a);
+    proenv_0x3038["QSWdWj"][_0x1da8fb] = _0x3000f4;
+  } else {
+    _0x3000f4 = _0x445a03;
+  }
+  return _0x3000f4;
+};
+console["log"]("\u914D\u7F6E\u4EE3\u7406\u6C60: OPENCARD_GLOBAL_AGENT_HTTP_PROXY_URL");
+console[proenv_0x3038("0x4", "*ut9")]("\u914D\u7F6Eapi\u4EE3\u7406: OPENCARD_API_PROXY_URL");
+global_agent_http_proxy_isopen = ![];
+if (process[proenv_0x3038("0x138", "SiLc")]["OPENCARD_API_PROXY_URL"]) {} else {
+  if (process[proenv_0x3038("0x282", "7MTm")]["OPENCARD_GLOBAL_AGENT_HTTP_PROXY_URL"]) {
+    global_agent_http_proxy_isopen = !![];
+    require("global-agent/bootstrap");
+    global["GLOBAL_AGENT"][proenv_0x3038("0xbe", "M8u9")] = process[proenv_0x3038("0x183", "X)A8")]["OPENCARD_GLOBAL_AGENT_HTTP_PROXY_URL"] || "";
+  }
+}
+api_proxy_open = ![];
+if (process["env"]["OPENCARD_API_PROXY_URL"]) {
+  api_proxy_open = !![];
+  your_proxy_url = process[proenv_0x3038("0x8a", "&c5t")][proenv_0x3038("0x203", "Mqi6")];
+} else {}
+console[proenv_0x3038("0x99", "38h$")](proenv_0x3038("0x267", "Ydq8") + (global_agent_http_proxy_isopen == !![] ? proenv_0x3038("0x25b", "[4T9") : proenv_0x3038("0x28f", "7MTm")) + " ");
+console["log"]("\u914D\u7F6Eapi\u4EE3\u7406: " + (api_proxy_open == !![] ? proenv_0x3038("0x70", "4Ozs") : proenv_0x3038("0x175", "38h$")));
+const proenv_0x48a164 = $[proenv_0x3038("0xe1", "Ix2i")]() ? require("./sendNotify") : "";
+const proenv_0x183a1f = $["isNode"]() ? require("./jdCookie.js") : "";
+const proenv_0x5b2633 = require("axios");
+HttpsProxyAgent = require(proenv_0x3038("0x22a", "*TJp"));
+const proenv_0x1e1e08 = require("./utils/proenv/proenv.js");
+const proenv_0x4c958f = require(proenv_0x3038("0x103", "SiLc"));
+const proenv_0x275a51 = require("https");
+let proenv_0x281d56 = [],
+  proenv_0x17828b = "",
+  proenv_0x31a3f7,
+  proenv_0x2d1eb6 = "";
+let proenv_0x22499c = process["env"][proenv_0x3038("0x229", "@5sN")] ? process["env"][proenv_0x3038("0xc5", "1*6k")] : "";
+let proenv_0x440881 = process[proenv_0x3038("0x37", "5CX3")]["jd_shopGifts_num"] ? process["env"][proenv_0x3038("0xf8", "Ydq8")] : 100;
+const proenv_0x425e9c = proenv_0x3038("0x110", "1*6k");
+let proenv_0x30dabd = [];
+let proenv_0x3e51af = [];
+if (proenv_0x22499c["indexOf"](proenv_0x3038("0x6c", "3U5L")) > -1 || proenv_0x22499c["indexOf"]("shopid") > -1) {
+  shopId = proenv_0x243942(proenv_0x3038("0x260", "o6xf"), proenv_0x22499c) || proenv_0x243942("shopid", proenv_0x22499c) || "";
+  proenv_0x30dabd = [shopId];
+} else {
+  if (proenv_0x22499c["indexOf"]("&") > -1) {
+    proenv_0x30dabd = proenv_0x22499c[proenv_0x3038("0x286", "[4T9")]("&");
+  } else {
+    proenv_0x30dabd = [proenv_0x22499c];
+  }
+}
+if ($["isNode"]()) {
+  Object["keys"](proenv_0x183a1f)[proenv_0x3038("0x23d", "bKz3")](_0x7e856c => {
+    proenv_0x281d56["push"](proenv_0x183a1f[_0x7e856c]);
+  });
+  if (process["env"]["JD_DEBUG"] && process["env"]["JD_DEBUG"] === "false") console[proenv_0x3038("0x27d", "o6xf")] = () => {};
+} else {
+  proenv_0x281d56 = [$["getdata"]("CookieJD"), $["getdata"](proenv_0x3038("0x36", "AIu7")), ...proenv_0x4ca3d7($["getdata"](proenv_0x3038("0xf1", "Kt@W")) || "[]")["map"](_0x2a46ab => _0x2a46ab[proenv_0x3038("0x14a", "Kt@W")])][proenv_0x3038("0x8f", "&r3*")](_0x50b501 => !!_0x50b501);
+}
+!(async () => {
+  const _0x1407fc = {};
+  _0x1407fc[proenv_0x3038("0x168", "o6xf")] = "493";
+  _0x1407fc["pbeKP"] = function (_0x2a41e6, _0x3aa1ce) {
+    return _0x2a41e6 + _0x3aa1ce;
+  };
+  _0x1407fc[proenv_0x3038("0xd2", "@5sN")] = function (_0x19c05c, _0x322fde, _0x481648) {
+    return _0x19c05c(_0x322fde, _0x481648);
+  };
+  _0x1407fc[proenv_0x3038("0x40", "Sf]x")] = function (_0x461977, _0x2c47cb) {
+    return _0x461977(_0x2c47cb);
+  };
+  _0x1407fc[proenv_0x3038("0x1d7", "l[[j")] = proenv_0x3038("0x24e", "PKdD");
+  _0x1407fc[proenv_0x3038("0x20e", "$Rbk")] = "vWeGM";
+  _0x1407fc[proenv_0x3038("0x20f", "*TJp")] = "FMdTj";
+  _0x1407fc["XZPgm"] = function (_0x6e2355, _0x2d1b35) {
+    return _0x6e2355 !== _0x2d1b35;
+  };
+  _0x1407fc[proenv_0x3038("0x27e", "Sf]x")] = proenv_0x3038("0x1c4", "Kt@W");
+  _0x1407fc["NzCiF"] = "mPTOm";
+  _0x1407fc[proenv_0x3038("0xbc", "q3r#")] = "\u5F53\u524D\u6D3B\u52A8\u4FE1\u606F\u53EF\u80FD\u6709\u8BEF";
+  _0x1407fc["NzBmN"] = function (_0x2044f3, _0x464d40) {
+    return _0x2044f3 < _0x464d40;
+  };
+  _0x1407fc[proenv_0x3038("0x1d1", "&c5t")] = proenv_0x3038("0xd4", "SiLc");
+  _0x1407fc["MSURA"] = proenv_0x3038("0x29f", "yE[I");
+  _0x1407fc[proenv_0x3038("0x3f", "3U5L")] = function (_0x136698) {
+    return _0x136698();
+  };
+  _0x1407fc[proenv_0x3038("0x1a5", "38h$")] = function (_0x1cd577, _0x3a0999) {
+    return _0x1cd577 == _0x3a0999;
+  };
+  _0x1407fc[proenv_0x3038("0x128", "q3r#")] = "ZmQPc";
+  _0x1407fc["JCLLK"] = function (_0x28a152, _0x2b072a, _0xd300e2) {
+    return _0x28a152(_0x2b072a, _0xd300e2);
+  };
+  _0x1407fc["UBFgv"] = function (_0x1ca685, _0x20a408) {
+    return _0x1ca685 * _0x20a408;
+  };
+  _0x1407fc[proenv_0x3038("0x12b", "JHlN")] = function (_0x387fd3, _0x15f5c1) {
+    return _0x387fd3 + _0x15f5c1;
+  };
+  _0x1407fc["RMULe"] = function (_0x5d4080, _0x253426) {
+    return _0x5d4080 * _0x253426;
+  };
+  _0x1407fc[proenv_0x3038("0x22", "JHlN")] = proenv_0x3038("0xe5", "fh1b");
+  const _0x26b6b6 = _0x1407fc;
+  if (!proenv_0x281d56[0]) {
+    if (_0x26b6b6[proenv_0x3038("0xb5", "M8u9")] === _0x26b6b6[proenv_0x3038("0x27b", "38h$")]) {
+      console["log"]("\u672A\u68C0\u6D4B\u5230cookie");
+      process[proenv_0x3038("0x24f", "HTA^")](1);
+      return;
+    } else {
+      if (err["response"][proenv_0x3038("0x172", "FPC3")] == _0x26b6b6["SSNgY"]) {
+        console[proenv_0x3038("0x6b", "@5sN")](proenv_0x3038("0x17d", "Mqi6"));
+        $[proenv_0x3038("0x126", "PKdD")] = !![];
+        process[proenv_0x3038("0x11c", "ZZr*")](1);
+      }
+    }
+  }
+  if (!proenv_0x22499c) {
+    if (_0x26b6b6["FvnrJ"] === _0x26b6b6["jeYOu"]) {
+      const _0x37ec5d = {};
+      _0x37ec5d[proenv_0x3038("0x269", "AIu7")] = myRequest["headers"];
+      _0x37ec5d["timeout"] = myRequest[proenv_0x3038("0x26", "1*6k")];
+      options = _0x37ec5d;
+    } else {
+      console[proenv_0x3038("0x1ad", "4Ozs")]("\u3010\u95EE\u9898\u53CD\u9988\u3011https://t.me/proenvc ");
+      console["log"]("export jd_shopGifts_ids=\"shopId\" \u672A\u8BBE\u7F6E \u9000\u51FA\uFF01\uFF01\uFF01");
+      process["exit"](1);
+      return;
+    }
+  }
+  proenv_0x1e1e08[proenv_0x3038("0x258", "q3r#")](!![]);
+  proenv_0x1e1e08[proenv_0x3038("0x235", "Mqi6")]();
+  for (let _0x903b64 = 0; _0x903b64 < proenv_0x30dabd["length"]; _0x903b64++) {
+    if (_0x26b6b6[proenv_0x3038("0x22b", "259s")](_0x26b6b6[proenv_0x3038("0x254", "1*6k")], _0x26b6b6["Bifeg"])) {
+      shopGifts = $[proenv_0x3038("0x11d", "7MTm")][proenv_0x3038("0x74", "1*6k")] || [];
+      if ($[proenv_0x3038("0x1dc", "o6xf")][proenv_0x3038("0x44", "o6xf")] >= 1) {
+        for (let _0x3a5491 of $[proenv_0x3038("0x4b", "[16e")]) {
+          proenv_0x31a3f7 += "\u5956\u54C1: " + _0x3a5491[proenv_0x3038("0x23e", "o6xf")] + " " + _0x3a5491["rearWord"] + proenv_0x3038("0xac", "Kt@W") + $["giftBagDataResult"][proenv_0x3038("0x3e", "^TpC")];
+          proenv_0x31a3f7 += _0x26b6b6["pbeKP"]("\n", res["result"]["giftDesc"]);
+        }
+      }
+      console["log"](res["result"]["giftDesc"]);
+    } else {
+      proenv_0x2d1eb6 = "";
+      proenv_0x31a3f7 = "";
+      $["venderId"] = "";
+      $["isEnd"] = ![];
+      $["ii"] = _0x903b64 + 1;
+      $[proenv_0x3038("0xba", "fh1b")] = proenv_0x30dabd[_0x903b64];
+      if ($[proenv_0x3038("0x28a", "PKdD")] == "" || $["shopId"]["length"] >= 20) {
+        if (_0x26b6b6["NzCiF"] === proenv_0x3038("0x1c2", "M8u9")) {
+          _0x26b6b6[proenv_0x3038("0xd7", "D0^A")](proenv_0x2d604e, type, res);
+        } else {
+          console["log"](_0x26b6b6["PrpDo"]);
+          continue;
+        }
+      }
+      console["log"]();
+      console[proenv_0x3038("0x131", "V#hn")]("\u5E97\u94FAId: " + $["shopId"]);
+      $[proenv_0x3038("0x279", "AIu7")] = "https://shop.m.jd.com/shop/home?shopId=" + $["shopId"];
+      console[proenv_0x3038("0xce", "Ydq8")]("\u6D3B\u52A8\u5730\u5740: " + $[proenv_0x3038("0xca", "[4T9")]);
+      for (let _0xedd5cf = 0; _0x26b6b6[proenv_0x3038("0x270", "1*6k")](_0xedd5cf, proenv_0x281d56["length"]); _0xedd5cf++) {
+        if (proenv_0x281d56[_0xedd5cf]) {
+          proenv_0x17828b = proenv_0x281d56[_0xedd5cf];
+          $[proenv_0x3038("0x208", "B[kr")] = decodeURIComponent(proenv_0x17828b[proenv_0x3038("0x19d", "&r3*")](/pt_pin=([^; ]+)(?=;?)/) && proenv_0x17828b["match"](/pt_pin=([^; ]+)(?=;?)/)[1]);
+          $["index"] = _0x26b6b6["pbeKP"](_0xedd5cf, 1);
+          $[proenv_0x3038("0x68", "Ix2i")] = !![];
+          $[proenv_0x3038("0xad", "bKz3")] = "";
+          proenv_0x31a3f7 = "";
+          console["log"](proenv_0x3038("0x127", "V#hn") + $["index"] + "\u3011" + ($[proenv_0x3038("0x82", "ZZr*")] || $["UserName"]) + proenv_0x3038("0x19e", "M8u9"));
+          $["UA"] = _0x26b6b6[proenv_0x3038("0x17e", "Kt@W")];
+          $["uuid"] = _0x26b6b6[proenv_0x3038("0x1ba", "y(7H")](proenv_0x284208, _0x26b6b6[proenv_0x3038("0x264", "D0^A")]);
+          $["eu"] = $[proenv_0x3038("0x14d", "259s")]["split"]("-")[0];
+          $["fv"] = $[proenv_0x3038("0x19", "PKdD")][proenv_0x3038("0x227", "PKdD")]("-")[1];
+          await proenv_0x35b3d1();
+          await _0x26b6b6["vHQwE"](proenv_0x5c45ab);
+          if (_0x26b6b6[proenv_0x3038("0x129", "V#hn")]($[proenv_0x3038("0x198", "&c5t")], !![])) {
+            if ("ZmQPc" === _0x26b6b6[proenv_0x3038("0xfc", "dU(g")]) {
+              break;
+            } else {
+              res = _0x26b6b6[proenv_0x3038("0xc1", "1*6k")](proenv_0x4a1d9d, res);
+              if (res) {
+                proenv_0x2d604e(type, res);
+              }
+            }
+          }
+          if ($[proenv_0x3038("0x261", "&r3*")] >= proenv_0x440881) {
+            console["log"](proenv_0x3038("0xfa", "4Ozs"));
+            break;
+          }
+        }
+      }
+      if (_0x26b6b6[proenv_0x3038("0x292", "l[[j")](api_proxy_open, !![]) || _0x26b6b6["RhqHW"](global_agent_http_proxy_isopen, !![])) {
+        await $[proenv_0x3038("0x10a", "JHlN")](_0x26b6b6["JCLLK"](parseInt, _0x26b6b6[proenv_0x3038("0x234", "V#hn")](_0x26b6b6[proenv_0x3038("0x18b", "ZZr*")](Math[proenv_0x3038("0x125", "CHCK")](), 250), 250), 10));
+      } else {
+        await $[proenv_0x3038("0x43", "259s")](parseInt(_0x26b6b6[proenv_0x3038("0x214", "l[[j")](_0x26b6b6[proenv_0x3038("0x1fc", "^TpC")](Math["random"](), 10000), 5500), 10));
+      }
+      if ($["isNode"]() && proenv_0x2d1eb6) {
+        proenv_0x2d1eb6 += _0x26b6b6["AImGh"](_0x26b6b6["jtndp"] + $[proenv_0x3038("0x1b0", "Kt@W")], "\n");
+        $["msg"]($[proenv_0x3038("0x1cc", "&c5t")], "", "" + proenv_0x2d1eb6);
+        if ($[proenv_0x3038("0x225", "oFf&")]()) await proenv_0x48a164["sendNotify"]("" + $["name"], "" + proenv_0x2d1eb6);
+        proenv_0x2d1eb6 = "";
+      }
+    }
+  }
+  process["exit"](1);
+})()["catch"](_0x2e8419 => $[proenv_0x3038("0x89", "&c5t")](_0x2e8419))[proenv_0x3038("0x219", "AIu7")](() => $["done"]());
+async function proenv_0x35b3d1() {
+  const _0x77b8b9 = {};
+  _0x77b8b9["YvxBv"] = function (_0x16f8ba, _0x479987) {
+    return _0x16f8ba >= _0x479987;
+  };
+  _0x77b8b9["KKCyM"] = "234567abcdefghijklmnopqrstuvwxyzABCDEFIJKLMNOPQRSTUVWXYZ";
+  _0x77b8b9[proenv_0x3038("0x28d", "M8u9")] = function (_0x1436df, _0x188c3c) {
+    return _0x1436df + _0x188c3c;
+  };
+  _0x77b8b9[proenv_0x3038("0x209", "(i4N")] = function (_0x174984, _0xa99df7, _0x56569c) {
+    return _0x174984(_0xa99df7, _0x56569c);
+  };
+  _0x77b8b9["ZlyIS"] = function (_0x5124bd, _0x1f75de) {
+    return _0x5124bd === _0x1f75de;
+  };
+  _0x77b8b9[proenv_0x3038("0x148", "#JbT")] = proenv_0x3038("0x9", "1*6k");
+  _0x77b8b9["Owqtq"] = function (_0x876223) {
+    return _0x876223();
+  };
+  _0x77b8b9["aQyJl"] = function (_0xf3bd2b, _0x3bbc04) {
+    return _0xf3bd2b == _0x3bbc04;
+  };
+  _0x77b8b9[proenv_0x3038("0xde", "l[[j")] = proenv_0x3038("0x22d", "oFf&");
+  _0x77b8b9["KhVoU"] = function (_0x71572b, _0x4237f3) {
+    return _0x71572b == _0x4237f3;
+  };
+  _0x77b8b9["chqOV"] = function (_0x438c46, _0x4b3461) {
+    return _0x438c46(_0x4b3461);
+  };
+  _0x77b8b9[proenv_0x3038("0xc6", "[16e")] = function (_0x3c95ed, _0x33ac78) {
+    return _0x3c95ed != _0x33ac78;
+  };
+  _0x77b8b9[proenv_0x3038("0x146", "5CX3")] = function (_0x23dcc0, _0x4feab4) {
+    return _0x23dcc0 >= _0x4feab4;
+  };
+  _0x77b8b9[proenv_0x3038("0x1af", "1*6k")] = "cimuP";
+  _0x77b8b9[proenv_0x3038("0xa4", "7MTm")] = function (_0x5a6f73, _0x3bc393) {
+    return _0x5a6f73(_0x3bc393);
+  };
+  _0x77b8b9[proenv_0x3038("0xa2", "Sf]x")] = proenv_0x3038("0x215", "Zg)!");
+  _0x77b8b9[proenv_0x3038("0xa0", "7MTm")] = function (_0xe8ae80, _0x59b8d8) {
+    return _0xe8ae80 === _0x59b8d8;
+  };
+  _0x77b8b9[proenv_0x3038("0x114", "oFf&")] = "GWqUq";
+  _0x77b8b9["mUalr"] = proenv_0x3038("0x13c", "Kt@W");
+  const _0x73b855 = _0x77b8b9;
+  try {
+    $["ERR_BAD_REQUEST"] = 0;
+    $["ECONNRESET"] = 0;
+    $[proenv_0x3038("0x1dd", "[4T9")] = "";
+    $[proenv_0x3038("0x277", "Ydq8")] = "";
+    $[proenv_0x3038("0x53", "$Rbk")] = ![];
+    tt = _0x73b855["KKCyM"];
+    $["x_api_eid_token"] = _0x73b855[proenv_0x3038("0x13d", "4Ozs")](proenv_0x3038("0xf9", "dU(g") + _0x73b855[proenv_0x3038("0x1ea", "#JbT")](proenv_0x9c3ecc, 122, tt)[proenv_0x3038("0x257", "SiLc")](), "X");
+    if (api_proxy_open == !![]) {
+      if (_0x73b855["ZlyIS"](_0x73b855[proenv_0x3038("0x19c", "259s")], proenv_0x3038("0x137", "PKdD"))) {
+        console[proenv_0x3038("0x1bd", "Kt@W")](res["result"]["msg"]);
+      } else {
+        await _0x73b855[proenv_0x3038("0x80", "yE[I")](proenv_0x22b22d);
+        if (_0x73b855[proenv_0x3038("0x124", "*ut9")]($[proenv_0x3038("0x26f", "FPC3")], ![])) {
+          await _0x73b855["Owqtq"](proenv_0x22b22d);
+          console[proenv_0x3038("0x4", "*ut9")]("\u4EE3\u7406\u83B7\u53D6\u5931\u8D25\uFF0C\u8DF3\u8FC7\u6B64\u6B21\u6267\u884C\uFF01");
+          return;
+        }
+      }
+    }
+    await proenv_0x3cca86(_0x73b855["CuRRZ"]);
+    if (_0x73b855["aQyJl"]($[proenv_0x3038("0x19b", "j*k9")], ![])) {} else {
+      console[proenv_0x3038("0x226", "X)A8")]("\u5DF2\u5173\u6CE8\u5E97\u94FA: " + $[proenv_0x3038("0x240", "dU(g")]);
+    }
+    if (_0x73b855[proenv_0x3038("0x1b8", "Zg)!")]($["venderId"], "")) {
+      await _0x73b855["chqOV"](proenv_0x3cca86, proenv_0x3038("0xe", "9Qm4"));
+    } else {}
+    if (_0x73b855[proenv_0x3038("0x196", "AIu7")]($["venderId"], "") && _0x73b855[proenv_0x3038("0x192", "^TpC")]($["giftBagDataResult"], "")) {
+      $[proenv_0x3038("0xf5", "PKdD")] = $[proenv_0x3038("0x111", "4Ozs")][proenv_0x3038("0x87", "^TpC")] || "";
+      $["shopGifts"] = $["giftBagDataResult"]["shopGifts"] || [];
+      $["flag"] = ![];
+      if (_0x73b855["apRtM"]($[proenv_0x3038("0x1aa", "38h$")]["length"], 1)) {
+        if (_0x73b855[proenv_0x3038("0x11e", "FPC3")] === _0x73b855[proenv_0x3038("0xe6", "B[kr")]) {
+          for (let _0x4feb93 of $[proenv_0x3038("0x74", "1*6k")]) {
+            if (false) {
+              data = data[proenv_0x3038("0x1b2", "Zg)!")]("\t");
+              if (_0x73b855["YvxBv"](data["length"], 1)) {
+                data = data[0];
+              }
+            } else {
+              console["log"]("\u5956\u54C1: " + _0x4feb93[proenv_0x3038("0xbd", "V#hn")] + " " + _0x4feb93[proenv_0x3038("0x1fe", "38h$")] + " - " + $["giftBagDataResult"]["giftTitle"]);
+              $["flag"] = !![];
+            }
+          }
+        } else {
+          api_proxy_open = !![];
+          your_proxy_url = process[proenv_0x3038("0x204", "*TJp")]["OPENCARD_API_PROXY_URL"];
+        }
+      }
+      if ($[proenv_0x3038("0x144", "Sf]x")] == !![]) await _0x73b855[proenv_0x3038("0x12e", "4Ozs")](proenv_0x3cca86, _0x73b855[proenv_0x3038("0x190", "*ut9")]);
+    } else {}
+  } catch (_0x2d4f3b) {
+    if (_0x73b855["SVOiV"](_0x73b855[proenv_0x3038("0x1d2", "V#hn")], _0x73b855[proenv_0x3038("0x295", "ZZr*")])) {
+      console["log"]("\u5956\u54C1: " + sg["redWord"] + " " + sg[proenv_0x3038("0x139", "y(7H")] + proenv_0x3038("0x28b", "bKz3") + $[proenv_0x3038("0x1a8", "&r3*")]["giftTitle"]);
+      $[proenv_0x3038("0x144", "Sf]x")] = !![];
+    } else {
+      console["log"](_0x2d4f3b[proenv_0x3038("0xef", "&c5t")]);
+    }
+  }
+}
+async function proenv_0x3cca86(_0x38d5cd) {
+  const _0x4c69b2 = {};
+  _0x4c69b2["LYHYy"] = function (_0x346828, _0x274924) {
+    return _0x346828(_0x274924);
+  };
+  _0x4c69b2[proenv_0x3038("0x14c", "JHlN")] = function (_0x5bd610, _0xc2392f) {
+    return _0x5bd610 !== _0xc2392f;
+  };
+  _0x4c69b2[proenv_0x3038("0x132", "j*k9")] = function (_0x41dd83, _0x371755, _0x42c03e) {
+    return _0x41dd83(_0x371755, _0x42c03e);
+  };
+  _0x4c69b2["hmFgM"] = proenv_0x3038("0x179", "^TpC");
+  _0x4c69b2["sUCfN"] = proenv_0x3038("0xf4", "Ix2i");
+  _0x4c69b2[proenv_0x3038("0x108", "Sf]x")] = proenv_0x3038("0x151", "V#hn");
+  _0x4c69b2["lnPxK"] = proenv_0x3038("0xf7", "5CX3");
+  _0x4c69b2[proenv_0x3038("0x75", "#JbT")] = "jDiiT";
+  _0x4c69b2["qDBvC"] = function (_0x3b69e3, _0x1ae833) {
+    return _0x3b69e3 == _0x1ae833;
+  };
+  _0x4c69b2[proenv_0x3038("0x48", "Mqi6")] = function (_0x2efaf8, _0x4ca08d) {
+    return _0x2efaf8 === _0x4ca08d;
+  };
+  _0x4c69b2["oTgtW"] = proenv_0x3038("0x13a", "V#hn");
+  _0x4c69b2[proenv_0x3038("0x159", "1*6k")] = function (_0x537e5c, _0x596281) {
+    return _0x537e5c == _0x596281;
+  };
+  _0x4c69b2[proenv_0x3038("0x14", "yE[I")] = proenv_0x3038("0x290", "oFf&");
+  _0x4c69b2[proenv_0x3038("0x5", "JHlN")] = proenv_0x3038("0x1a7", "dU(g");
+  _0x4c69b2["rsCsc"] = function (_0x2d120c, _0x54804b) {
+    return _0x2d120c == _0x54804b;
+  };
+  _0x4c69b2["nZkQw"] = "ETIMEDOUT";
+  _0x4c69b2["PgnWl"] = proenv_0x3038("0x1e3", "M8u9");
+  _0x4c69b2[proenv_0x3038("0x1e1", "AIu7")] = proenv_0x3038("0x243", "4Ozs");
+  _0x4c69b2["YVoaA"] = function (_0x59ada6, _0x1f98ae) {
+    return _0x59ada6 + _0x1f98ae;
+  };
+  _0x4c69b2["pKcIM"] = function (_0x127b5a, _0x6ba02b) {
+    return _0x127b5a >= _0x6ba02b;
+  };
+  _0x4c69b2["fFoDn"] = function (_0x143fab, _0x525829) {
+    return _0x143fab !== _0x525829;
+  };
+  _0x4c69b2["JylIq"] = "fOqUK";
+  _0x4c69b2["ZjcRo"] = function (_0x4cf7a4) {
+    return _0x4cf7a4();
+  };
+  _0x4c69b2[proenv_0x3038("0x123", "DVVm")] = function (_0xd9e619, _0x249fbf) {
+    return _0xd9e619 == _0x249fbf;
+  };
+  _0x4c69b2[proenv_0x3038("0x93", "FPC3")] = proenv_0x3038("0x224", "AIu7");
+  _0x4c69b2[proenv_0x3038("0xeb", "CHCK")] = "isvObfuscator";
+  _0x4c69b2[proenv_0x3038("0xc2", "FPC3")] = function (_0x16bc57, _0xc079f9) {
+    return _0x16bc57 == _0xc079f9;
+  };
+  _0x4c69b2[proenv_0x3038("0x21f", "*ut9")] = "ERR_BAD_RESPONSE";
+  _0x4c69b2["dLShe"] = function (_0x11a7b1, _0x25c861) {
+    return _0x11a7b1 == _0x25c861;
+  };
+  _0x4c69b2[proenv_0x3038("0xd0", "*ut9")] = proenv_0x3038("0x97", "Zg)!");
+  _0x4c69b2["YFwMd"] = function (_0x4d14e0, _0x356d14) {
+    return _0x4d14e0 + _0x356d14;
+  };
+  _0x4c69b2[proenv_0x3038("0x32", "V#hn")] = function (_0x132794, _0x407b34) {
+    return _0x132794 * _0x407b34;
+  };
+  _0x4c69b2["pTwvG"] = function (_0x30e12a, _0x4ba817) {
+    return _0x30e12a(_0x4ba817);
+  };
+  _0x4c69b2[proenv_0x3038("0x236", "bKz3")] = proenv_0x3038("0x9a", "V#hn");
+  _0x4c69b2["jbnEa"] = function (_0x1f6738, _0x2e7034) {
+    return _0x1f6738 == _0x2e7034;
+  };
+  _0x4c69b2["uEsiO"] = proenv_0x3038("0x167", "^TpC");
+  _0x4c69b2["BrnQO"] = proenv_0x3038("0x85", "*TJp");
+  _0x4c69b2[proenv_0x3038("0xd6", "#JbT")] = function (_0x5c0477, _0x204d77) {
+    return _0x5c0477 + _0x204d77;
+  };
+  _0x4c69b2["gcZPP"] = function (_0xcaa0b4, _0x593fad) {
+    return _0xcaa0b4 * _0x593fad;
+  };
+  _0x4c69b2[proenv_0x3038("0x6e", "oFf&")] = function (_0x2cb504, _0x26a719) {
+    return _0x2cb504 >= _0x26a719;
+  };
+  _0x4c69b2["hCCxv"] = "ECONNABORTED";
+  _0x4c69b2["FQjip"] = "getCk";
+  _0x4c69b2["bjmqh"] = function (_0x5dd93c, _0x14cedd) {
+    return _0x5dd93c == _0x14cedd;
+  };
+  _0x4c69b2[proenv_0x3038("0x25f", "*TJp")] = function (_0x335cbd, _0x311692, _0x4c1a34) {
+    return _0x335cbd(_0x311692, _0x4c1a34);
+  };
+  _0x4c69b2["phnyU"] = function (_0x30d14d, _0x304c78) {
+    return _0x30d14d + _0x304c78;
+  };
+  _0x4c69b2["kdbqU"] = function (_0x1747fa, _0x263f49) {
+    return _0x1747fa(_0x263f49);
+  };
+  _0x4c69b2[proenv_0x3038("0x239", "^TpC")] = proenv_0x3038("0x285", "AIu7");
+  _0x4c69b2[proenv_0x3038("0x8", "o6xf")] = "POST";
+  _0x4c69b2[proenv_0x3038("0x18f", "X)A8")] = proenv_0x3038("0x228", "JHlN");
+  _0x4c69b2["RhCye"] = "m-shop";
+  _0x4c69b2[proenv_0x3038("0xa3", "Sf]x")] = proenv_0x3038("0x177", "[4T9");
+  _0x4c69b2["wMkZY"] = proenv_0x3038("0x238", "#JbT");
+  _0x4c69b2["XvWLo"] = function (_0x145fb4, _0x3ce532) {
+    return _0x145fb4(_0x3ce532);
+  };
+  _0x4c69b2["Kwmff"] = function (_0x36c14f, _0x415d6a, _0x59dff9, _0x2a4fc7, _0x483ca9) {
+    return _0x36c14f(_0x415d6a, _0x59dff9, _0x2a4fc7, _0x483ca9);
+  };
+  _0x4c69b2["rErnL"] = function (_0x5461dc, _0x5e1bc4) {
+    return _0x5461dc == _0x5e1bc4;
+  };
+  _0x4c69b2[proenv_0x3038("0x189", "#JbT")] = proenv_0x3038("0x1e8", "*ut9");
+  _0x4c69b2["IiBRP"] = function (_0x47c74e, _0x3eabac) {
+    return _0x47c74e + _0x3eabac;
+  };
+  _0x4c69b2[proenv_0x3038("0x29a", "Mqi6")] = function (_0x391c05, _0x1c988d) {
+    return _0x391c05 * _0x1c988d;
+  };
+  _0x4c69b2[proenv_0x3038("0x157", "@5sN")] = function (_0x41581c, _0xb05ba, _0x4d1ff4) {
+    return _0x41581c(_0xb05ba, _0x4d1ff4);
+  };
+  _0x4c69b2["MEMkr"] = function (_0x1aa65e, _0x38b070) {
+    return _0x1aa65e + _0x38b070;
+  };
+  _0x4c69b2["mFoLR"] = proenv_0x3038("0x1bb", "1*6k");
+  _0x4c69b2[proenv_0x3038("0x3d", "yE[I")] = proenv_0x3038("0x21b", "B[kr");
+  _0x4c69b2["fWTfs"] = "mTvZe";
+  _0x4c69b2[proenv_0x3038("0x90", "[4T9")] = "get";
+  const _0x49831f = _0x4c69b2;
+  let _0x1a9f00 = "";
+  let _0xdf97a5 = _0x49831f["gUXQz"];
+  let _0x35b103 = "";
+  let _0x29c0e9 = _0x49831f["HoEPh"];
+  let _0x2d3d1e = "";
+  switch (_0x38d5cd) {
+    case _0x49831f["sKWRn"]:
+      const _0x3cb0f1 = {};
+      _0x3cb0f1["shopId"] = $[proenv_0x3038("0x1b", "@5sN")];
+      _0x3cb0f1["source"] = _0x49831f["RhCye"];
+      bo = _0x3cb0f1;
+      _0x1a9f00 = _0xdf97a5 + proenv_0x3038("0x34", "JHlN") + _0x38d5cd + proenv_0x3038("0x140", "bKz3") + Date[proenv_0x3038("0x231", "Mqi6")]() + proenv_0x3038("0x1e4", "bKz3") + $[proenv_0x3038("0xb7", "5CX3")] + "&body=" + _0x49831f["kdbqU"](encodeURIComponent, JSON[proenv_0x3038("0x5d", "&r3*")](bo)) + "&x-api-eid-token=" + $[proenv_0x3038("0x17a", "[4T9")];
+      break;
+    case _0x49831f[proenv_0x3038("0xf3", "Ydq8")]:
+      _0x1a9f00 = _0xdf97a5 + proenv_0x3038("0xc3", "D0^A") + _0x38d5cd + "&t=" + Date[proenv_0x3038("0x231", "Mqi6")]() + proenv_0x3038("0x119", "&c5t") + $[proenv_0x3038("0xab", "*ut9")] + proenv_0x3038("0x1df", "dU(g") + encodeURIComponent(JSON[proenv_0x3038("0x39", "4Ozs")](bo)) + "&x-api-eid-token=" + $[proenv_0x3038("0x288", "oFf&")];
+      break;
+    case proenv_0x3038("0x62", "^TpC"):
+      const _0x57d148 = {};
+      _0x57d148[proenv_0x3038("0x16", "1*6k")] = $["shopId"];
+      _0x57d148["follow"] = !![];
+      bo = _0x57d148;
+      _0x1a9f00 = _0xdf97a5 + "?functionId=" + _0x38d5cd + "&t=" + Date[proenv_0x3038("0x1d8", "4Ozs")]() + "&appid=shop_m_jd_com&clientVersion=11.0.0&client=wh5&area=0_0_0_0&uuid=" + $["uuid"] + proenv_0x3038("0x105", "D0^A") + encodeURIComponent(JSON[proenv_0x3038("0x4a", "CHCK")](bo)) + "&x-api-eid-token=" + $[proenv_0x3038("0x230", "(i4N")];
+      break;
+    case _0x49831f["wMkZY"]:
+      const _0x2086a2 = {};
+      _0x2086a2[proenv_0x3038("0x101", "B[kr")] = $["shopId"];
+      _0x2086a2[proenv_0x3038("0x16f", "M8u9")] = $[proenv_0x3038("0x10", "oFf&")];
+      _0x2086a2["activityId"] = $[proenv_0x3038("0x20a", "FPC3")];
+      bo = _0x2086a2;
+      _0x1a9f00 = _0xdf97a5 + "?functionId=" + _0x38d5cd + proenv_0x3038("0x28e", "oFf&") + Date[proenv_0x3038("0x94", "&r3*")]() + proenv_0x3038("0x19a", "M8u9") + $["uuid"] + proenv_0x3038("0x259", "38h$") + _0x49831f["XvWLo"](encodeURIComponent, JSON[proenv_0x3038("0x107", "$Rbk")](bo)) + "&x-api-eid-token=" + $["x_api_eid_token"];
+      break;
+    default:
+      console[proenv_0x3038("0xdc", "DVVm")]("\u9519\u8BEF: " + _0x38d5cd);
+      break;
+  }
+  let _0x470d39 = _0x49831f["Kwmff"](proenv_0x4e6822, _0x38d5cd, _0x1a9f00, _0x35b103, _0x29c0e9);
+  if (_0x49831f[proenv_0x3038("0xb6", "$Rbk")](api_proxy_open, !![]) || global_agent_http_proxy_isopen == !![]) {
+    if (_0x49831f["uOBvs"](_0x49831f["uRmcM"], "KhglM")) {
+      $["getIpStatus"] = ![];
+      console[proenv_0x3038("0x188", "M8u9")]("\u4EE3\u7406\u83B7\u53D6\u5931\u8D25");
+    } else {
+      await $[proenv_0x3038("0x26e", "AIu7")](_0x49831f["eDiMX"](parseInt, _0x49831f[proenv_0x3038("0x23b", "3U5L")](_0x49831f[proenv_0x3038("0xd5", "SiLc")](Math[proenv_0x3038("0x1da", "@5sN")](), 500), 500), 10));
+    }
+  } else {
+    await $[proenv_0x3038("0x18a", "dU(g")](_0x49831f["GlBNN"](parseInt, _0x49831f[proenv_0x3038("0x1c5", "X)A8")](_0x49831f["pvCdh"](Math[proenv_0x3038("0x9d", "Ix2i")](), 1000), 1000), 10));
+  }
+  options = {};
+  if (api_proxy_open == !![]) {
+    let _0x3ef9ae = "http://" + $["ip"] + ":" + $["ipo"];
+    let _0x11fe8c = await new HttpsProxyAgent["HttpsProxyAgent"](_0x3ef9ae);
+    let _0x140ca4 = _0x11fe8c;
+    const _0x50e227 = {};
+    _0x50e227["headers"] = _0x470d39["headers"];
+    _0x50e227[proenv_0x3038("0x1f9", "Ix2i")] = _0x470d39["timeout"];
+    _0x50e227[proenv_0x3038("0x1ed", "FPC3")] = ![];
+    _0x50e227["httpAgent"] = _0x140ca4;
+    _0x50e227["httpsAgent"] = _0x11fe8c;
+    options = _0x50e227;
+  } else {
+    const _0xb2ec35 = {};
+    _0xb2ec35["headers"] = _0x470d39[proenv_0x3038("0x18c", "7MTm")];
+    _0xb2ec35["timeout"] = _0x470d39["timeout"];
+    options = _0xb2ec35;
+  }
+  if (_0x29c0e9["toLowerCase"]()["includes"](_0x49831f[proenv_0x3038("0xa7", "B[kr")])) {
+    if (_0x49831f["uOBvs"](_0x49831f[proenv_0x3038("0x242", "Mqi6")], _0x49831f[proenv_0x3038("0x154", "(i4N")])) {
+      console["log"]("\u4EE3\u7406\u5931\u8D25\u592A\u591A(\u53EF\u80FD\u4EE3\u7406\u5931\u6548\u4E86\uFF0C\u8BF7\u68C0\u67E5\u4EE3\u7406\u767D\u540D\u5355\u662F\u5426\u6389\u51FA\uFF0C\u989D\u5EA6\u662F\u5426\u8D85\u4E86), \u5F3A\u5236\u9000\u51FA");
+      process["exit"](1);
+    } else {
+      return proenv_0x5b2633["post"](_0x1a9f00, _0x35b103, options)[proenv_0x3038("0xe8", "[16e")](function (_0x1e34fb) {
+        _0x1e34fb = _0x49831f["LYHYy"](proenv_0x4a1d9d, _0x1e34fb);
+        if (_0x1e34fb) {
+          if (_0x49831f[proenv_0x3038("0xbb", "@5sN")]("syWBs", "mAiaB")) {
+            _0x49831f["QMaqh"](proenv_0x2d604e, _0x38d5cd, _0x1e34fb);
+          } else {
+            data = data[0];
+          }
+        }
+      })[proenv_0x3038("0x1e5", "yE[I")](async function (_0x222840) {
+        const _0x5d2254 = {};
+        _0x5d2254["cMsxQ"] = _0x49831f[proenv_0x3038("0x116", "Ix2i")];
+        _0x5d2254["SOeFy"] = _0x49831f["lnPxK"];
+        _0x5d2254["oMyGc"] = function (_0x18c899, _0x4b8b9f) {
+          return _0x49831f[proenv_0x3038("0x296", "Kt@W")](_0x18c899, _0x4b8b9f);
+        };
+        const _0x2222ba = _0x5d2254;
+        if (_0x49831f[proenv_0x3038("0x197", "3U5L")]("GOEvZ", _0x49831f[proenv_0x3038("0x26a", "ZZr*")])) {
+          if (_0x222840["response"]) {
+            console["log"](_0x222840["response"]["status"]);
+            if (_0x49831f[proenv_0x3038("0x251", "9Qm4")](api_proxy_open, !![]) || global_agent_http_proxy_isopen == !![]) {} else {
+              if (_0x49831f[proenv_0x3038("0x210", "&r3*")](_0x49831f["oTgtW"], "dTAcW")) {
+                data = data["split"]("\r");
+                if (data[proenv_0x3038("0xc8", "$Rbk")] >= 1) {
+                  data = data[0];
+                }
+              } else {
+                if (_0x222840["response"][proenv_0x3038("0x248", "V#hn")] == proenv_0x3038("0x21c", "5CX3")) {
+                  console[proenv_0x3038("0x1ef", "Mqi6")](proenv_0x3038("0x120", "q3r#"));
+                  $["outFlag"] = !![];
+                  process[proenv_0x3038("0x1d4", "&c5t")](1);
+                }
+              }
+            }
+            if (_0x222840[proenv_0x3038("0x86", "(i4N")]["status"] == proenv_0x3038("0x26b", "[4T9")) {}
+          }
+          console[proenv_0x3038("0x252", "[4T9")]("\u9519\u8BEF\u78011: " + _0x38d5cd + proenv_0x3038("0x49", "dU(g") + _0x222840["code"]);
+          if (_0x49831f[proenv_0x3038("0xa8", "X)A8")](api_proxy_open, !![]) && (_0x222840[proenv_0x3038("0x1e6", "3U5L")] == _0x49831f[proenv_0x3038("0x271", "y(7H")] || _0x222840["code"] == _0x49831f["eastv"] || _0x49831f[proenv_0x3038("0x98", "y(7H")](_0x222840["code"], _0x49831f["nZkQw"]))) {
+            if (_0x49831f["PgnWl"] !== _0x49831f[proenv_0x3038("0xff", "M8u9")]) {
+              await $["wait"](_0x49831f["QMaqh"](parseInt, _0x49831f[proenv_0x3038("0x33", "[16e")](Math[proenv_0x3038("0x1b7", "o6xf")]() * 500, 350), 10));
+              if (_0x49831f["pKcIM"]($[proenv_0x3038("0xae", "yE[I")], 50)) {
+                if (_0x49831f["uOBvs"]("vBtxs", "vBtxs")) {
+                  console["log"](proenv_0x3038("0x61", "[4T9"));
+                  process["exit"](1);
+                } else {
+                  data = "";
+                }
+              } else {
+                if (_0x49831f[proenv_0x3038("0x2e", "[16e")](proenv_0x3038("0x176", "X)A8"), _0x49831f["JylIq"])) {
+                  $[proenv_0x3038("0x1f3", "38h$")] += 1;
+                  $["getIpStatus"] = !![];
+                  await _0x49831f[proenv_0x3038("0x21a", "ZZr*")](proenv_0x22b22d);
+                  await proenv_0x3cca86(_0x38d5cd);
+                } else {
+                  proenv_0x281d56 = [$["getdata"](_0x2222ba[proenv_0x3038("0x1ec", "ZZr*")]), $[proenv_0x3038("0x165", "&r3*")](_0x2222ba[proenv_0x3038("0x255", "SiLc")]), ..._0x2222ba["oMyGc"](proenv_0x4ca3d7, $["getdata"](proenv_0x3038("0x130", "[4T9")) || "[]")[proenv_0x3038("0x173", "dU(g")](_0x64053 => _0x64053["cookie"])]["filter"](_0x44fdeb => !!_0x44fdeb);
+                }
+              }
+            } else {
+              console[proenv_0x3038("0x268", "y(7H")]("ip\u53EF\u80FD\u5DF2\u7ECF\u88AB\u9650\u5236\uFF0C \u8FC7\u5341\u5206\u949F\u518D\u6765\uFF01\uFF01\uFF01");
+              $[proenv_0x3038("0xa5", "X)A8")] = !![];
+              process[proenv_0x3038("0x72", "@5sN")](1);
+            }
+          }
+          if (_0x49831f["rsCsc"](_0x222840[proenv_0x3038("0x1f", "FPC3")], proenv_0x3038("0xe7", "@p%V")) || _0x49831f[proenv_0x3038("0x9f", "&r3*")](_0x222840[proenv_0x3038("0x26d", "$Rbk")], _0x49831f[proenv_0x3038("0x220", "[4T9")]) && ![_0x49831f["NCozT"], "getCk"][proenv_0x3038("0x4d", "(i4N")](_0x38d5cd) || _0x49831f[proenv_0x3038("0x1d6", "o6xf")](_0x222840["code"], _0x49831f["LDYJH"]) || _0x49831f[proenv_0x3038("0x281", "^TpC")](_0x222840[proenv_0x3038("0x182", "&c5t")], proenv_0x3038("0x67", "j*k9")) || _0x222840["code"] == _0x49831f[proenv_0x3038("0x51", "^TpC")]) {
+            if (_0x49831f[proenv_0x3038("0x191", "B[kr")](proenv_0x3038("0x13", "j*k9"), _0x49831f["wrKEU"])) {
+              if (_0x49831f[proenv_0x3038("0x60", "dU(g")]($["ERR_BAD_REQUEST"], 5)) {
+                $["ERR_BAD_REQUEST"] = 0;
+              } else {
+                $["ERR_BAD_REQUEST"] += 1;
+                await $["wait"](parseInt(_0x49831f["YFwMd"](_0x49831f[proenv_0x3038("0x237", "&c5t")](Math[proenv_0x3038("0x1ff", "HTA^")](), 500), 500), 10));
+                await _0x49831f["LYHYy"](proenv_0x3cca86, _0x38d5cd);
+              }
+            } else {
+              resolve(!![]);
+            }
+          }
+        } else {
+          shopId = _0x49831f[proenv_0x3038("0x262", "B[kr")](proenv_0x243942, _0x49831f[proenv_0x3038("0x29b", "(i4N")], proenv_0x22499c) || _0x49831f["QMaqh"](proenv_0x243942, _0x49831f["sUCfN"], proenv_0x22499c) || "";
+          proenv_0x30dabd = [shopId];
+        }
+      });
+    }
+  } else if (_0x29c0e9["toLowerCase"]()["includes"](_0x49831f["vJPvf"])) {
+    return proenv_0x5b2633[proenv_0x3038("0x1b4", "$Rbk")](_0x1a9f00, options)[proenv_0x3038("0x2", "bKz3")](function (_0xbfcef6) {
+      _0xbfcef6 = _0x49831f[proenv_0x3038("0x142", "Zg)!")](proenv_0x4a1d9d, _0xbfcef6);
+      if (_0xbfcef6) {
+        proenv_0x2d604e(_0x38d5cd, _0xbfcef6);
+      }
+    })["catch"](async function (_0x394dc1) {
+      if (_0x394dc1["response"]) {
+        console["log"](_0x394dc1[proenv_0x3038("0xc0", "Ix2i")][proenv_0x3038("0x2c", "#JbT")]);
+        if (_0x49831f["dLShe"](api_proxy_open, !![]) || _0x49831f[proenv_0x3038("0xda", "bKz3")](global_agent_http_proxy_isopen, !![])) {} else {
+          if (_0x394dc1["response"]["status"] == _0x49831f[proenv_0x3038("0x78", "dU(g")]) {
+            console["log"](proenv_0x3038("0x263", "M8u9"));
+            $[proenv_0x3038("0x0", "3U5L")] = !![];
+            process[proenv_0x3038("0x115", "DVVm")](1);
+          }
+        }
+        if (_0x49831f["jbnEa"](_0x394dc1[proenv_0x3038("0x18e", "bKz3")]["status"], proenv_0x3038("0x10c", "3U5L"))) {}
+      }
+      console[proenv_0x3038("0x15d", "&r3*")](proenv_0x3038("0x244", "5CX3") + _0x38d5cd + " - " + _0x394dc1[proenv_0x3038("0x181", "&r3*")]);
+      if (_0x49831f[proenv_0x3038("0x22c", "[16e")](api_proxy_open, !![]) && (_0x49831f["jbnEa"](_0x394dc1["code"], "ECONNRESET") || _0x394dc1[proenv_0x3038("0x216", "(i4N")] == _0x49831f[proenv_0x3038("0xa1", "B[kr")] || _0x394dc1["code"] == _0x49831f["nZkQw"])) {
+        if (_0x49831f[proenv_0x3038("0x134", "q3r#")](_0x49831f["uEsiO"], _0x49831f[proenv_0x3038("0x153", "V#hn")])) {
+          for (let _0xd25008 of $["shopGifts"]) {
+            console["log"]("\u5956\u54C1: " + _0xd25008[proenv_0x3038("0x23c", "bKz3")] + " " + _0xd25008["rearWord"] + proenv_0x3038("0x18", "PKdD") + $[proenv_0x3038("0xfb", "V#hn")]["giftTitle"]);
+            $["flag"] = !![];
+          }
+        } else {
+          await $["wait"](parseInt(_0x49831f["GBQNr"](_0x49831f["gcZPP"](Math[proenv_0x3038("0x1b6", "fh1b")](), 500), 350), 10));
+          if (_0x49831f[proenv_0x3038("0x25c", "[4T9")]($[proenv_0x3038("0x1a4", "V#hn")], 50)) {
+            console["log"]("\u4EE3\u7406\u5931\u8D25\u592A\u591A(\u53EF\u80FD\u4EE3\u7406\u5931\u6548\u4E86\uFF0C\u8BF7\u68C0\u67E5\u4EE3\u7406\u767D\u540D\u5355\u662F\u5426\u6389\u51FA\uFF0C\u989D\u5EA6\u662F\u5426\u8D85\u4E86), \u5F3A\u5236\u9000\u51FA");
+            process["exit"](1);
+          } else {
+            $[proenv_0x3038("0x58", "9Qm4")] += 1;
+            $[proenv_0x3038("0x46", "D0^A")] = !![];
+            await proenv_0x22b22d();
+            await _0x49831f["pTwvG"](proenv_0x3cca86, _0x38d5cd);
+          }
+        }
+      }
+      if (_0x49831f["jbnEa"](_0x394dc1["code"], _0x49831f["hCCxv"]) || _0x49831f["jbnEa"](_0x394dc1["code"], _0x49831f["vHZgP"]) && !["isvObfuscator", _0x49831f["FQjip"]]["includes"](_0x38d5cd) || _0x394dc1[proenv_0x3038("0x166", "Ydq8")] == proenv_0x3038("0x1fb", "ZZr*") || _0x49831f[proenv_0x3038("0x30", "Mqi6")](_0x394dc1["code"], "EAI_AGAIN") || _0x49831f[proenv_0x3038("0x141", "bKz3")](_0x394dc1["code"], _0x49831f[proenv_0x3038("0xcb", "AIu7")])) {
+        if ($[proenv_0x3038("0x76", "fh1b")] >= 5) {
+          $[proenv_0x3038("0x1a0", "B[kr")] = 0;
+        } else {
+          $["ERR_BAD_REQUEST"] += 1;
+          await $["wait"](_0x49831f["eDiMX"](parseInt, _0x49831f["phnyU"](_0x49831f["gcZPP"](Math[proenv_0x3038("0x1ff", "HTA^")](), 500), 500), 10));
+          await _0x49831f[proenv_0x3038("0xec", "*ut9")](proenv_0x3cca86, _0x38d5cd);
+        }
+      }
     });
-    if (_0x531314?.["body"]) return _0x531314?.["body"];else {
-      if (_0x531314?.["data"]?.["convertUrl"]) {
-        return _0x531314?.["data"]?.["convertUrl"];
+  }
+}
+function proenv_0x2d604e(_0x5296be = "", _0x5bcd43 = "") {
+  const _0xabdd01 = {};
+  _0xabdd01["lzoZk"] = function (_0x510692, _0x475e7e) {
+    return _0x510692 !== _0x475e7e;
+  };
+  _0xabdd01[proenv_0x3038("0x143", "j*k9")] = function (_0x1b6e41, _0x2fc6a0) {
+    return _0x1b6e41 || _0x2fc6a0;
+  };
+  _0xabdd01["sWNhG"] = proenv_0x3038("0x9e", "CHCK");
+  _0xabdd01[proenv_0x3038("0x118", "y(7H")] = "attendLog";
+  _0xabdd01["gqowe"] = proenv_0x3038("0x5c", "M8u9");
+  _0xabdd01["xBRbJ"] = "accessLogWithAD";
+  _0xabdd01["vGZWl"] = proenv_0x3038("0x84", "AIu7");
+  _0xabdd01[proenv_0x3038("0x20", "SiLc")] = "ECzGF";
+  _0xabdd01["Ynlvy"] = function (_0x382bbe, _0x3b1f5d) {
+    return _0x382bbe === _0x3b1f5d;
+  };
+  _0xabdd01[proenv_0x3038("0x13e", "@5sN")] = "XLZXC";
+  _0xabdd01["VQNUA"] = function (_0x6fed96, _0x4bbf56) {
+    return _0x6fed96 + _0x4bbf56;
+  };
+  _0xabdd01["mIWkI"] = function (_0x15fa0b, _0x538bd8) {
+    return _0x15fa0b * _0x538bd8;
+  };
+  _0xabdd01["sOXUg"] = proenv_0x3038("0x52", "bKz3");
+  _0xabdd01["kZXnO"] = "whx_getShopHomeActivityInfo";
+  _0xabdd01[proenv_0x3038("0x17", "bKz3")] = proenv_0x3038("0xc9", "9Qm4");
+  _0xabdd01["waAVi"] = "iKHSb";
+  _0xabdd01[proenv_0x3038("0xb2", "l[[j")] = "whx_getMShopOutlineInfo";
+  _0xabdd01["dWMsh"] = function (_0xceea0f, _0x411209) {
+    return _0xceea0f > _0x411209;
+  };
+  _0xabdd01[proenv_0x3038("0x202", "CHCK")] = "lJEgj";
+  _0xabdd01["LYriM"] = proenv_0x3038("0x71", "@5sN");
+  _0xabdd01["uhQZD"] = function (_0x5ebd7a, _0x31596e) {
+    return _0x5ebd7a != _0x31596e;
+  };
+  _0xabdd01[proenv_0x3038("0x184", "Sf]x")] = function (_0x5a4a59, _0x3c7450) {
+    return _0x5a4a59 !== _0x3c7450;
+  };
+  _0xabdd01[proenv_0x3038("0x247", "9Qm4")] = function (_0x3d8cf7, _0x34a1a7) {
+    return _0x3d8cf7 > _0x34a1a7;
+  };
+  _0xabdd01["blgys"] = "\u9886\u53D6\u6210\u529F";
+  _0xabdd01["kvXTE"] = "smcvC";
+  _0xabdd01["Ivrmz"] = proenv_0x3038("0x194", "PKdD");
+  _0xabdd01["UQfOg"] = "\u5DF2\u62A2\u5B8C";
+  _0xabdd01["ilbgn"] = function (_0x4a28ea, _0xff1da3) {
+    return _0x4a28ea !== _0xff1da3;
+  };
+  _0xabdd01[proenv_0x3038("0x180", "M8u9")] = "gCggA";
+  _0xabdd01["CQLVU"] = function (_0xc9d7b1, _0x3fc98c) {
+    return _0xc9d7b1 + _0x3fc98c;
+  };
+  _0xabdd01[proenv_0x3038("0x12d", "9Qm4")] = function (_0x2d2b8e, _0x431a69) {
+    return _0x2d2b8e * _0x431a69;
+  };
+  _0xabdd01["cBPQj"] = function (_0x177d49, _0x4b3960) {
+    return _0x177d49(_0x4b3960);
+  };
+  _0xabdd01["RUrje"] = function (_0x16500e, _0x3a2939) {
+    return _0x16500e || _0x3a2939;
+  };
+  const _0x8550cc = _0xabdd01;
+  return new Promise(async _0x36fd3a => {
+    let _0x1f3589 = "";
+    try {
+      if (![_0x8550cc[proenv_0x3038("0x171", "oFf&")], _0x8550cc[proenv_0x3038("0x20d", "#JbT")], _0x8550cc["gqowe"], "drawContent", _0x8550cc[proenv_0x3038("0x64", "D0^A")], _0x8550cc["sWNhG"]]["includes"](_0x5296be)) {
+        if (_0x8550cc["lzoZk"](_0x8550cc["vGZWl"], _0x8550cc[proenv_0x3038("0x15e", "yE[I")])) {
+          if (_0x5bcd43) {
+            if (_0x8550cc[proenv_0x3038("0x161", "&c5t")](_0x8550cc["IQuJt"], _0x8550cc[proenv_0x3038("0x65", "AIu7")])) {
+              _0x1f3589 = JSON["parse"](_0x5bcd43);
+            } else {
+              return _0x1f3589;
+            }
+          }
+        } else {
+          return JSON[proenv_0x3038("0x294", "Ix2i")](_0x1f3589);
+        }
+      }
+    } catch (_0x3fbc90) {
+      console[proenv_0x3038("0x195", "Sf]x")](_0x5296be + proenv_0x3038("0x122", "5CX3"));
+      await $["wait"](parseInt(_0x8550cc[proenv_0x3038("0x201", "3U5L")](_0x8550cc["mIWkI"](Math[proenv_0x3038("0x1a", "l[[j")](), 500), 500), 10));
+      console[proenv_0x3038("0x1ef", "Mqi6")](_0x8550cc[proenv_0x3038("0x17c", "9Qm4")]("\u91CD\u8BD5", _0x5296be));
+      await proenv_0x3cca86(_0x5296be);
+    }
+    try {
+      switch (_0x5296be) {
+        case _0x8550cc["sOXUg"]:
+          if (_0x1f3589[proenv_0x3038("0x24c", "D0^A")] == "0" && _0x1f3589["result"]) {
+            console[proenv_0x3038("0x226", "X)A8")](_0x1f3589["result"][proenv_0x3038("0x1de", "Ydq8")]);
+          } else {
+            console[proenv_0x3038("0xea", "Zg)!")](_0x5bcd43);
+          }
+          break;
+        case _0x8550cc[proenv_0x3038("0xee", "X)A8")]:
+          if (_0x5bcd43[proenv_0x3038("0x10e", "Sf]x")](_0x8550cc[proenv_0x3038("0x275", "AIu7")]) > -1) {
+            if (_0x8550cc[proenv_0x3038("0x280", "*ut9")]("EYZFw", _0x8550cc["waAVi"])) {
+              console["log"]("\u672A\u68C0\u6D4B\u5230cookie");
+              process[proenv_0x3038("0x1cf", "Sf]x")](1);
+              return;
+            } else {
+              if (_0x1f3589[proenv_0x3038("0x1eb", "Zg)!")] == "0" && _0x1f3589["result"]) {
+                $[proenv_0x3038("0x1e7", "B[kr")] = _0x1f3589[proenv_0x3038("0x3", "1*6k")]["followed"] || ![];
+                $["giftBagDataResult"] = _0x1f3589[proenv_0x3038("0x232", "DVVm")][proenv_0x3038("0x1bc", "Mqi6")] || "";
+              } else {
+                console[proenv_0x3038("0xdc", "DVVm")](_0x5bcd43);
+              }
+            }
+          } else {}
+          break;
+        case _0x8550cc["EkyoF"]:
+          if (_0x8550cc[proenv_0x3038("0x15f", "JHlN")](_0x5bcd43[proenv_0x3038("0x12c", "#JbT")](proenv_0x3038("0x2a", "HTA^")), -1)) {
+            if (_0x8550cc[proenv_0x3038("0x164", "3U5L")] !== _0x8550cc[proenv_0x3038("0x24a", "q3r#")]) {
+              shopInfo = _0x1f3589["data"]["shopInfo"] || "";
+              if (_0x8550cc["uhQZD"]($[proenv_0x3038("0x149", "4Ozs")], "")) {
+                $[proenv_0x3038("0x16", "1*6k")] = shopInfo["shopId"] || "";
+                $["venderId"] = shopInfo[proenv_0x3038("0x24d", "B[kr")] || "";
+              }
+            } else {
+              _0x5bcd43 = _0x5bcd43[0];
+            }
+          }
+          break;
+        case "whx_drawShopGift":
+          if (_0x1f3589["code"] = "0" && _0x1f3589["result"]) {
+            if (_0x8550cc[proenv_0x3038("0x22f", "yE[I")](proenv_0x3038("0x21e", "7MTm"), "vHFGe")) {
+              $[proenv_0x3038("0x276", "l[[j")]($["name"], "", proenv_0x3038("0x1e9", "HTA^") + $["index"] + "\u3011" + $[proenv_0x3038("0x2b", "Zg)!")] + " " + proenv_0x31a3f7 + " \n");
+              proenv_0x2d1eb6 += proenv_0x3038("0x7d", "o6xf") + $["index"] + "\u3011" + $["UserName"] + " " + proenv_0x31a3f7 + (_0x8550cc[proenv_0x3038("0x186", "$Rbk")]($["index"], proenv_0x281d56["length"]) ? "\n" : "");
+            } else {
+              if (_0x8550cc[proenv_0x3038("0x27c", "5CX3")](_0x5bcd43[proenv_0x3038("0x10e", "Sf]x")](_0x8550cc[proenv_0x3038("0x1a2", "Kt@W")]), -1)) {
+                shopGifts = $[proenv_0x3038("0xd9", "*ut9")]["shopGifts"] || [];
+                if ($["shopGifts"][proenv_0x3038("0x41", "X)A8")] >= 1) {
+                  if (_0x8550cc[proenv_0x3038("0x185", "SiLc")] !== _0x8550cc[proenv_0x3038("0x20b", "DVVm")]) {
+                    const _0x4a2bbd = {};
+                    _0x4a2bbd[proenv_0x3038("0x27f", "AIu7")] = url;
+                    _0x4a2bbd["method"] = method;
+                    _0x4a2bbd["headers"] = headers;
+                    _0x4a2bbd[proenv_0x3038("0xa", "j*k9")] = 30000;
+                    return _0x4a2bbd;
+                  } else {
+                    for (let _0x3bba63 of $["shopGifts"]) {
+                      proenv_0x31a3f7 += "\u5956\u54C1: " + _0x3bba63[proenv_0x3038("0x106", "B[kr")] + " " + _0x3bba63["rearWord"] + proenv_0x3038("0x2d", "1*6k") + $[proenv_0x3038("0xfb", "V#hn")]["giftTitle"];
+                      proenv_0x31a3f7 += "\n" + _0x1f3589[proenv_0x3038("0x21", "3U5L")]["giftDesc"];
+                    }
+                  }
+                }
+                console[proenv_0x3038("0x131", "V#hn")](_0x1f3589[proenv_0x3038("0x12a", "259s")][proenv_0x3038("0xf", "j*k9")]);
+              } else {
+                if (_0x8550cc["Ynlvy"](_0x8550cc["Ivrmz"], _0x8550cc["Ivrmz"])) {
+                  console["log"](_0x1f3589[proenv_0x3038("0x29e", "FPC3")][proenv_0x3038("0x283", "dU(g")]);
+                } else {
+                  console["log"](proenv_0x3038("0x246", "Sf]x"));
+                  process[proenv_0x3038("0xf6", "Ix2i")](1);
+                }
+              }
+            }
+          }
+          if (_0x8550cc["hGmNa"](_0x5bcd43[proenv_0x3038("0x35", "JHlN")](_0x8550cc[proenv_0x3038("0x54", "l[[j")]), -1)) $["isEnd"] = !![];
+          break;
+        default:
+          console[proenv_0x3038("0xce", "Ydq8")](_0x5296be + "-> " + _0x5bcd43);
+          break;
+      }
+    } catch (_0xddd56c) {
+      if (_0x8550cc[proenv_0x3038("0x5b", "1*6k")](_0x8550cc["spnFE"], _0x8550cc["spnFE"])) {
+        _0xddd56c = _0x8550cc["KpTgh"](_0xddd56c, 32);
+        let _0x58be9 = tt,
+          _0x55c636 = _0x58be9["length"],
+          _0x336bac = "";
+        for (i = 0; i < _0xddd56c; i++) _0x336bac += _0x58be9["charAt"](Math["floor"](Math["random"]() * _0x55c636));
+        return _0x336bac;
+      } else {
+        console["log"](_0x5296be + proenv_0x3038("0x19f", "V#hn"));
+        await $["wait"](parseInt(_0x8550cc["CQLVU"](_0x8550cc[proenv_0x3038("0x6d", "B[kr")](Math["random"](), 500), 500), 10));
+      }
+    }
+    _0x8550cc[proenv_0x3038("0xfd", "Mqi6")](_0x36fd3a, _0x8550cc[proenv_0x3038("0x1fd", "AIu7")](_0x5bcd43, ""));
+  });
+}
+function proenv_0x4e6822(_0x5c9f11, _0x16b018, _0xc8fe90, _0x478396 = "post") {
+  const _0x195b6e = {};
+  _0x195b6e["rzvWi"] = function (_0x204a3b, _0x16ba9a) {
+    return _0x204a3b + _0x16ba9a;
+  };
+  _0x195b6e["ORzbv"] = "__jda=76161171.1706914284857772786751.1706914284.1711597760.1711764812.44; __jdb=76161171.1.1706914284857772786751|44.1711764812; 3AB9D23F7A4B3CSS=";
+  _0x195b6e[proenv_0x3038("0x59", "HTA^")] = proenv_0x3038("0x55", "[4T9");
+  _0x195b6e[proenv_0x3038("0x16d", "HTA^")] = proenv_0x3038("0x16c", "y(7H");
+  _0x195b6e["eRTQV"] = "https://shop.m.jd.com";
+  _0x195b6e["sKYko"] = proenv_0x3038("0x1e", "^TpC");
+  _0x195b6e["cYmFr"] = proenv_0x3038("0x31", "V#hn");
+  _0x195b6e["JISyD"] = "whx_drawShopGift";
+  _0x195b6e[proenv_0x3038("0x1d5", "&r3*")] = function (_0x2f00d8, _0x243a8e) {
+    return _0x2f00d8 + _0x243a8e;
+  };
+  _0x195b6e["NHCOk"] = function (_0x379a11, _0x546f28) {
+    return _0x379a11 + _0x546f28;
+  };
+  _0x195b6e["gsCGy"] = function (_0x49a513, _0xe8fa2e) {
+    return _0x49a513 !== _0xe8fa2e;
+  };
+  _0x195b6e[proenv_0x3038("0x1be", "Zg)!")] = "JykvL";
+  _0x195b6e["cHdoo"] = "post";
+  _0x195b6e["wgsWN"] = function (_0x89e71a, _0x3d2709) {
+    return _0x89e71a === _0x3d2709;
+  };
+  _0x195b6e[proenv_0x3038("0x1db", "38h$")] = proenv_0x3038("0x66", "FPC3");
+  _0x195b6e[proenv_0x3038("0x1ac", "^TpC")] = "IARSO";
+  const _0xcfb0b7 = _0x195b6e;
+  const _0x19522 = {};
+  _0x19522[proenv_0x3038("0x25", "Kt@W")] = "application/json, text/plain, */*";
+  _0x19522[proenv_0x3038("0xfe", "#JbT")] = _0xcfb0b7["yhAMd"];
+  _0x19522[proenv_0x3038("0x1a3", "B[kr")] = proenv_0x3038("0x265", "Ix2i");
+  _0x19522["x-referer-page"] = "https://shop.m.jd.com/shop/home";
+  _0x19522["origin"] = _0xcfb0b7["eRTQV"];
+  _0x19522["x-rp-client"] = _0xcfb0b7["sKYko"];
+  _0x19522[proenv_0x3038("0x299", "Mqi6")] = $["UA"];
+  _0x19522["accept-language"] = _0xcfb0b7["cYmFr"];
+  _0x19522[proenv_0x3038("0xbf", "X)A8")] = "gzip, deflate, br";
+  let _0x3e164d = _0x19522;
+  if ([_0xcfb0b7[proenv_0x3038("0x163", "*ut9")]][proenv_0x3038("0x10f", "Sf]x")](_0x5c9f11)) {
+    _0x3e164d["cookie"] = _0xcfb0b7[proenv_0x3038("0xb", "259s")](_0xcfb0b7[proenv_0x3038("0x200", "SiLc")](proenv_0x17828b, _0xcfb0b7["ORzbv"]) + $[proenv_0x3038("0x8e", "V#hn")], _0xcfb0b7[proenv_0x3038("0x12f", "[4T9")]);
+  } else {
+    _0x3e164d["cookie"] = proenv_0x17828b;
+  }
+  if (_0x478396[proenv_0x3038("0x14e", "38h$")]()["includes"](proenv_0x3038("0x211", "CHCK"))) {
+    if (_0xcfb0b7["gsCGy"](_0xcfb0b7[proenv_0x3038("0x155", "3U5L")], _0xcfb0b7["LsQIZ"])) {
+      _0x3e164d[proenv_0x3038("0x83", "dU(g")] = _0xcfb0b7[proenv_0x3038("0xcf", "Ydq8")](_0xcfb0b7["rzvWi"](proenv_0x17828b + _0xcfb0b7["ORzbv"], $["x_api_eid_token"]), _0xcfb0b7["NzDla"]);
+    } else {
+      const _0x5d5520 = {};
+      _0x5d5520["url"] = _0x16b018;
+      _0x5d5520[proenv_0x3038("0x11", "Ydq8")] = _0x478396;
+      _0x5d5520["headers"] = _0x3e164d;
+      _0x5d5520[proenv_0x3038("0xb8", "DVVm")] = 30000;
+      return _0x5d5520;
+    }
+  } else if (_0x478396[proenv_0x3038("0x1cd", "q3r#")]()[proenv_0x3038("0x50", "9Qm4")](_0xcfb0b7[proenv_0x3038("0xf2", "&r3*")])) {
+    if (_0xcfb0b7[proenv_0x3038("0x1ce", "&c5t")](_0xcfb0b7[proenv_0x3038("0x102", "259s")], _0xcfb0b7[proenv_0x3038("0x7a", "38h$")])) {
+      $[proenv_0x3038("0x38", "@5sN")] = res["result"][proenv_0x3038("0x69", "*TJp")] || ![];
+      $[proenv_0x3038("0x1f0", "ZZr*")] = res[proenv_0x3038("0x15", "oFf&")][proenv_0x3038("0x187", "&c5t")] || "";
+    } else {
+      const _0x449ff0 = {};
+      _0x449ff0["url"] = _0x16b018;
+      _0x449ff0["method"] = _0x478396;
+      _0x449ff0["headers"] = _0x3e164d;
+      _0x449ff0["body"] = _0xc8fe90;
+      _0x449ff0["timeout"] = 30000;
+      return _0x449ff0;
+    }
+  }
+}
+function proenv_0x4a3e65(_0x3a5757, _0x425097, _0x286e72, _0x2f02ba) {
+  const _0x59916a = {};
+  _0x59916a[proenv_0x3038("0x291", "Ydq8")] = proenv_0x3038("0x8c", "9Qm4");
+  const _0x353f31 = _0x59916a;
+  const _0x8915b8 = {};
+  _0x8915b8["appid"] = _0x286e72;
+  _0x8915b8[proenv_0x3038("0x15b", "V#hn")] = _0x3a5757;
+  _0x8915b8[proenv_0x3038("0x8d", "PKdD")] = _0x353f31["nEpOb"];
+  _0x8915b8["client"] = proenv_0x3038("0xd3", "Kt@W");
+  _0x8915b8["body"] = _0x2f02ba;
+  _0x8915b8["t"] = Date[proenv_0x3038("0x121", "(i4N")]();
+  bb = _0x8915b8;
+  return bb;
+}
+function proenv_0x4a1d9d(_0x55371a) {
+  const _0x5d2f13 = {};
+  _0x5d2f13["CBeHD"] = function (_0x5f5673, _0x3168e3) {
+    return _0x5f5673 + _0x3168e3;
+  };
+  _0x5d2f13[proenv_0x3038("0x287", "yE[I")] = function (_0x29685b, _0x1eee7f) {
+    return _0x29685b(_0x1eee7f);
+  };
+  _0x5d2f13["jNWwP"] = function (_0x34224d, _0x2dc609) {
+    return _0x34224d == _0x2dc609;
+  };
+  _0x5d2f13["Erxcq"] = proenv_0x3038("0x221", "*ut9");
+  _0x5d2f13[proenv_0x3038("0xc4", "&c5t")] = function (_0x5202bf, _0x1e58b3) {
+    return _0x5202bf !== _0x1e58b3;
+  };
+  _0x5d2f13[proenv_0x3038("0x8b", "9Qm4")] = proenv_0x3038("0xb3", "oFf&");
+  _0x5d2f13["JBgSL"] = proenv_0x3038("0x14f", "#JbT");
+  const _0x274217 = _0x5d2f13;
+  if (_0x274217[proenv_0x3038("0x79", "3U5L")](_0x55371a[proenv_0x3038("0xf0", "q3r#")], 200) && _0x55371a["data"]) {
+    _0x55371a = _0x55371a["data"];
+    if (typeof _0x55371a == _0x274217["Erxcq"]) {
+      if (_0x274217["owvFX"](_0x274217["AVGKj"], "iVukL")) {
+        proenv_0x31a3f7 += "\u5956\u54C1: " + sg["redWord"] + " " + sg["rearWord"] + " - " + $[proenv_0x3038("0x1f0", "ZZr*")][proenv_0x3038("0x1c7", "@5sN")];
+        proenv_0x31a3f7 += _0x274217["CBeHD"]("\n", _0x55371a["result"][proenv_0x3038("0x10b", "FPC3")]);
+      } else {
+        return JSON["stringify"](_0x55371a);
+      }
+    } else {
+      if (_0x274217[proenv_0x3038("0xaa", "(i4N")](proenv_0x3038("0x73", "DVVm"), _0x274217[proenv_0x3038("0x57", "1*6k")])) {
+        console["log"](proenv_0x3038("0x9b", "5CX3"));
+        _0x274217["NBnoI"](resolve, ![]);
+      } else {
+        return _0x55371a;
       }
     }
   } else {
-    let _0xfc477 = "android",
-      _0x288068 = _0x18e184 || "11.0.2",
-      _0x56a522 = [[0, 2], [1, 1], [2, 0]],
-      _0x58e9f4,
-      _0x2bd035;
-    [_0x58e9f4, _0x2bd035] = _0x56a522[Math.floor(Math.random() * _0x56a522.length)];
-    let _0x1f3f0b = "1" + _0x58e9f4 + _0x2bd035,
-      _0x5da982 = new Date().getTime();
-    _0x23c5e1 = typeof _0x23c5e1 == "string" ? _0x23c5e1 : JSON.stringify(_0x23c5e1);
-    let _0x1f2d5f = new Buffer.from(_0x23c5e1).toString("latin1"),
-      _0x4c1d44 = _0x28f2ff(),
-      _0x4edafe = _0x169d63(_0x4c1d44),
-      _0xd90e04 = "functionId=" + _0x2ba192 + "&body=" + _0x1f2d5f + "&uuid=" + _0x4c1d44 + "&client=" + _0xfc477 + "&clientVersion=" + _0x288068 + "&st=" + _0x5da982 + "&sv=" + _0x1f3f0b,
-      _0x47df81 = _0x1fc00d(_0xd90e04, _0x58e9f4, _0x2bd035),
-      _0x140e3d = new Buffer.from(_0x47df81).toString("base64"),
-      _0x1a9e89 = _0xc41bd2.MD5(_0x140e3d).toString();
-    return "clientVersion=" + _0x288068 + "&client=" + _0xfc477 + "&networkType=wifi&ef=1&ep=" + _0x4edafe + "&st=" + _0x5da982 + "&sign=" + _0x1a9e89 + "&sv=" + _0x1f3f0b + "&body=" + encodeURIComponent(_0x23c5e1);
+    if (_0x274217["owvFX"](proenv_0x3038("0x207", "HTA^"), proenv_0x3038("0x4e", "Zg)!"))) {
+      global_agent_http_proxy_isopen = !![];
+      _0x274217[proenv_0x3038("0x91", "Ix2i")](require, "global-agent/bootstrap");
+      global["GLOBAL_AGENT"][proenv_0x3038("0x150", "38h$")] = process["env"]["OPENCARD_GLOBAL_AGENT_HTTP_PROXY_URL"] || "";
+    } else {
+      return "";
+    }
   }
 }
-async function _0x59d3d7(_0x452d21, _0x412332, _0x31e062) {
-  let _0x53a717 = "",
-    _0x3e5cf1 = {
-      "fn": _0x452d21,
-      "body": _0x412332
-    };
-  return _0x31e062 && (_0x3e5cf1.ver = _0x31e062), _0x53a717 = await _0x360ef0.post("https://6dy.jdpro.site/sign", {
-    "json": _0x3e5cf1,
-    "retry": {
-      "limit": 1,
-      "methods": ["GET", "POST"]
-    },
-    "hooks": {
-      "beforeRetry": [(_0x362a37, _0xcbbac9) => {
-        if (_0xcbbac9) {}
-      }]
-    },
-    "timeout": {
-      "request": 30000
+function proenv_0x4ca3d7(_0x4e5e25) {
+  const _0x13d91f = {};
+  _0x13d91f[proenv_0x3038("0x1d0", "259s")] = "string";
+  _0x13d91f[proenv_0x3038("0x218", "Ydq8")] = proenv_0x3038("0x7e", "#JbT");
+  const _0x250a52 = _0x13d91f;
+  if (typeof _0x4e5e25 == _0x250a52[proenv_0x3038("0xe0", "38h$")]) {
+    try {
+      return JSON["parse"](_0x4e5e25);
+    } catch (_0x1e8af4) {
+      console["log"](_0x1e8af4);
+      $["msg"]($[proenv_0x3038("0xe2", "AIu7")], "", _0x250a52[proenv_0x3038("0x18d", "fh1b")]);
+      return [];
     }
-  }).json().catch(async _0x2cabae => {
-    console.log("获取失败\n");
-  }), _0x53a717.body;
+  }
 }
-async function _0x14206b(_0x30431d, _0x26df88) {
-  let _0x59ee1e = await _0x360ef0.post("http://api.nolanstore.cc/sign", {
-    "json": {
-      "fn": _0x30431d,
-      "body": _0x26df88
-    },
-    "retry": {
-      "limit": 1,
-      "methods": ["GET", "POST"]
-    },
-    "hooks": {
-      "beforeRetry": [(_0x410e05, _0x772ce3) => {
-        if (_0x772ce3) {}
-      }]
-    },
-    "timeout": {
-      "request": 30000
+function proenv_0x9c3ecc(_0x1690d3, _0x5f1b47) {
+  const _0x4dce93 = {};
+  _0x4dce93["aNSCU"] = function (_0xd528f, _0x4c7e99) {
+    return _0xd528f || _0x4c7e99;
+  };
+  _0x4dce93["qJWWO"] = function (_0x15e9b4, _0x361d93) {
+    return _0x15e9b4 < _0x361d93;
+  };
+  _0x4dce93["RXIZu"] = function (_0x4f0dd8, _0x4a9d1c) {
+    return _0x4f0dd8 * _0x4a9d1c;
+  };
+  const _0x592e73 = _0x4dce93;
+  _0x1690d3 = _0x592e73[proenv_0x3038("0x272", "l[[j")](_0x1690d3, 32);
+  let _0x1d5e37 = _0x5f1b47,
+    _0x4bd6c7 = _0x1d5e37[proenv_0x3038("0x13b", "AIu7")],
+    _0x4bec9e = "";
+  for (i = 0; _0x592e73[proenv_0x3038("0xe4", "5CX3")](i, _0x1690d3); i++) _0x4bec9e += _0x1d5e37["charAt"](Math[proenv_0x3038("0x1f5", "AIu7")](_0x592e73["RXIZu"](Math[proenv_0x3038("0x92", "Mqi6")](), _0x4bd6c7)));
+  return _0x4bec9e;
+}
+function proenv_0x35d32e(_0x3b1766, _0x57f9cb) {
+  const _0x116755 = {};
+  _0x116755[proenv_0x3038("0x249", "Kt@W")] = function (_0x248eac, _0x3ab68d) {
+    return _0x248eac !== _0x3ab68d;
+  };
+  _0x116755[proenv_0x3038("0x1a6", "SiLc")] = "VuRyD";
+  _0x116755[proenv_0x3038("0xd8", "fh1b")] = function (_0x3e4b34, _0x38d0fb) {
+    return _0x3e4b34 + _0x38d0fb;
+  };
+  _0x116755[proenv_0x3038("0x3c", "Sf]x")] = function (_0x129224, _0x88f365) {
+    return _0x129224 + _0x88f365;
+  };
+  _0x116755[proenv_0x3038("0x174", "9Qm4")] = proenv_0x3038("0x274", "V#hn");
+  _0x116755["fhEmw"] = proenv_0x3038("0x109", "yE[I");
+  _0x116755["vfXml"] = function (_0x26e68a, _0x7ce022) {
+    return _0x26e68a != _0x7ce022;
+  };
+  const _0x34cc3c = _0x116755;
+  if (!_0x57f9cb) {
+    if (_0x34cc3c[proenv_0x3038("0x22e", "ZZr*")](_0x34cc3c["QYXVs"], "VuRyD")) {
+      data = data[0];
+    } else {
+      _0x57f9cb = location["href"];
     }
-  }).json().catch(_0x13df6a => {
-    console.log(_0x13df6a.message);
-    console.log("sign获取失败,请检查网络！\n");
+  }
+  var _0x3dfc5a = new RegExp(_0x34cc3c[proenv_0x3038("0xb1", "ZZr*")](_0x34cc3c["HLKcs"](_0x34cc3c["JsrHW"], _0x3b1766), _0x34cc3c[proenv_0x3038("0x178", "(i4N")]));
+  var _0x9bb4cc = _0x57f9cb["match"](_0x3dfc5a);
+  if (_0x34cc3c[proenv_0x3038("0x4f", "[4T9")](_0x9bb4cc, null)) return decodeURIComponent(_0x9bb4cc[2]);
+  return "";
+}
+function proenv_0x284208(_0x3428bf = proenv_0x3038("0x158", "B[kr"), _0x2a7902 = 0) {
+  const _0x4113cb = {};
+  _0x4113cb[proenv_0x3038("0x223", "#JbT")] = function (_0x573856, _0x25eb72) {
+    return _0x573856 !== _0x25eb72;
+  };
+  _0x4113cb[proenv_0x3038("0xa9", "Ydq8")] = proenv_0x3038("0x273", "D0^A");
+  _0x4113cb["XLcTa"] = function (_0x707fcc, _0x116fef) {
+    return _0x707fcc | _0x116fef;
+  };
+  _0x4113cb[proenv_0x3038("0x26c", "HTA^")] = function (_0x2f073f, _0x3027c7) {
+    return _0x2f073f * _0x3027c7;
+  };
+  _0x4113cb["fSXgz"] = function (_0x458edb, _0x1017fd) {
+    return _0x458edb == _0x1017fd;
+  };
+  _0x4113cb[proenv_0x3038("0xb4", "HTA^")] = function (_0x4ec717, _0xfd8935) {
+    return _0x4ec717 & _0xfd8935;
+  };
+  const _0xf86502 = _0x4113cb;
+  return _0x3428bf["replace"](/[xy]/g, function (_0x418f13) {
+    if (_0xf86502[proenv_0x3038("0x156", "*ut9")](_0xf86502["qXVDN"], proenv_0x3038("0xb9", "q3r#"))) {
+      str = "";
+    } else {
+      var _0x5d825d = _0xf86502[proenv_0x3038("0x212", "l[[j")](_0xf86502["pQeak"](16, Math["random"]()), 0),
+        _0x21da8f = _0xf86502[proenv_0x3038("0xd", "Ix2i")]("x", _0x418f13) ? _0x5d825d : _0xf86502["ishQw"](3, _0x5d825d) | 8;
+      return uuid = _0x2a7902 ? _0x21da8f[proenv_0x3038("0x5a", "bKz3")](36)[proenv_0x3038("0x15c", "3U5L")]() : _0x21da8f[proenv_0x3038("0x7b", "Sf]x")](36), uuid;
+    }
   });
-  return _0x59ee1e.body;
 }
-module.exports = _0x137505;
+function proenv_0x243942(_0x53fd8c, _0x2ef5f2) {
+  const _0x5dcc66 = {};
+  _0x5dcc66["lnDSG"] = function (_0x58380f, _0x1b93a0) {
+    return _0x58380f(_0x1b93a0);
+  };
+  _0x5dcc66[proenv_0x3038("0x133", "FPC3")] = function (_0x5591dd, _0x1e45ef) {
+    return _0x5591dd || _0x1e45ef;
+  };
+  _0x5dcc66[proenv_0x3038("0xdb", "7MTm")] = function (_0x4df98f, _0x280eeb) {
+    return _0x4df98f === _0x280eeb;
+  };
+  _0x5dcc66[proenv_0x3038("0x193", "259s")] = "MwDLx";
+  _0x5dcc66["vTXMS"] = function (_0x4d2425, _0xbbf0f1) {
+    return _0x4d2425 + _0xbbf0f1;
+  };
+  _0x5dcc66["zIAFE"] = function (_0x178aaa, _0x58541b) {
+    return _0x178aaa + _0x58541b;
+  };
+  _0x5dcc66[proenv_0x3038("0x1d3", "@p%V")] = "(^|[&?])";
+  _0x5dcc66[proenv_0x3038("0x21d", "bKz3")] = proenv_0x3038("0x1c6", "3U5L");
+  _0x5dcc66[proenv_0x3038("0x9c", "X)A8")] = function (_0x4748b3, _0x42bee0) {
+    return _0x4748b3 != _0x42bee0;
+  };
+  const _0x125bd8 = _0x5dcc66;
+  if (!_0x2ef5f2) {
+    if (_0x125bd8["YwIAD"](_0x125bd8["jrYCd"], _0x125bd8[proenv_0x3038("0x17b", "AIu7")])) {
+      _0x2ef5f2 = "";
+    } else {
+      _0x125bd8["lnDSG"](resolve, _0x125bd8["QJmYk"](data, ""));
+    }
+  }
+  var _0x1aa4d8 = new RegExp(_0x125bd8["vTXMS"](_0x125bd8[proenv_0x3038("0x213", "#JbT")](_0x125bd8[proenv_0x3038("0x152", "[16e")], _0x53fd8c), _0x125bd8["VmWbM"]));
+  var _0x51f1bd = _0x2ef5f2[proenv_0x3038("0x24b", "ZZr*")](_0x1aa4d8);
+  if (_0x125bd8["dhBiR"](_0x51f1bd, null)) return _0x125bd8[proenv_0x3038("0x113", "M8u9")](decodeURIComponent, _0x51f1bd[2]);
+  return "";
+}
+async function proenv_0x5c45ab() {
+  const _0xf893d6 = {};
+  _0xf893d6["FtPFa"] = function (_0x464924, _0x350ac6) {
+    return _0x464924 !== _0x350ac6;
+  };
+  _0xf893d6[proenv_0x3038("0x1b9", "Zg)!")] = proenv_0x3038("0x23f", "Zg)!");
+  _0xf893d6["KgOai"] = proenv_0x3038("0x11a", "PKdD");
+  const _0x161ba0 = _0xf893d6;
+  if ($["isNode"]()) {
+    if (proenv_0x31a3f7) {
+      $["msg"]($["name"], "", proenv_0x3038("0x5f", "3U5L") + $[proenv_0x3038("0x23", "o6xf")] + "\u3011" + $["UserName"] + " " + proenv_0x31a3f7 + " \n");
+      proenv_0x2d1eb6 += proenv_0x3038("0xcd", "*ut9") + $["index"] + "\u3011" + $[proenv_0x3038("0x1e2", "38h$")] + " " + proenv_0x31a3f7 + (_0x161ba0["FtPFa"]($["index"], proenv_0x281d56[proenv_0x3038("0x222", "B[kr")]) ? "\n" : "");
+    } else {
+      if (_0x161ba0[proenv_0x3038("0x20c", "B[kr")](_0x161ba0["VljQT"], _0x161ba0["KgOai"])) {
+        proenv_0x2d1eb6 += "";
+      } else {
+        console["log"](e[proenv_0x3038("0x250", "dU(g")]);
+      }
+    }
+  }
+}
+async function proenv_0x22b22d() {
+  const _0x3cfff9 = {};
+  _0x3cfff9["JnBtK"] = function (_0x47da50, _0x30a5e0) {
+    return _0x47da50 !== _0x30a5e0;
+  };
+  _0x3cfff9[proenv_0x3038("0x29d", "7MTm")] = proenv_0x3038("0x6", "3U5L");
+  _0x3cfff9["NzUdd"] = "android";
+  _0x3cfff9["VMjae"] = proenv_0x3038("0x104", "l[[j");
+  _0x3cfff9["lmija"] = proenv_0x3038("0x56", "DVVm");
+  _0x3cfff9[proenv_0x3038("0xc7", "Ydq8")] = function (_0x438157, _0x461f01) {
+    return _0x438157 * _0x461f01;
+  };
+  _0x3cfff9["QtRnO"] = function (_0x2b5f82, _0x349b8a) {
+    return _0x2b5f82 != _0x349b8a;
+  };
+  _0x3cfff9[proenv_0x3038("0xdf", "[16e")] = proenv_0x3038("0x1d9", "7MTm");
+  _0x3cfff9["zmNqi"] = function (_0x215f23, _0x4b12cc, _0x5982e1) {
+    return _0x215f23(_0x4b12cc, _0x5982e1);
+  };
+  _0x3cfff9["GhfXU"] = function (_0x59fffa, _0x59cb3b) {
+    return _0x59fffa + _0x59cb3b;
+  };
+  _0x3cfff9[proenv_0x3038("0x160", "Ix2i")] = function (_0x34f595, _0x5c2049) {
+    return _0x34f595 === _0x5c2049;
+  };
+  _0x3cfff9[proenv_0x3038("0x63", "o6xf")] = proenv_0x3038("0x256", "&c5t");
+  _0x3cfff9[proenv_0x3038("0x245", "q3r#")] = function (_0x1a7c27, _0x38fe9d) {
+    return _0x1a7c27 == _0x38fe9d;
+  };
+  _0x3cfff9["kulSN"] = function (_0x32ed9e, _0x1c9aec) {
+    return _0x32ed9e !== _0x1c9aec;
+  };
+  _0x3cfff9["ziVNr"] = "RMVdl";
+  _0x3cfff9[proenv_0x3038("0x6a", "(i4N")] = function (_0x1124b3, _0x45c7da, _0xc571ef) {
+    return _0x1124b3(_0x45c7da, _0xc571ef);
+  };
+  _0x3cfff9[proenv_0x3038("0x293", "l[[j")] = function (_0x4ecc32, _0x20707c) {
+    return _0x4ecc32 + _0x20707c;
+  };
+  _0x3cfff9[proenv_0x3038("0x233", "1*6k")] = function (_0x549e0d, _0x43906a) {
+    return _0x549e0d * _0x43906a;
+  };
+  _0x3cfff9[proenv_0x3038("0x1c0", "259s")] = function (_0x41f863, _0x361ded) {
+    return _0x41f863 !== _0x361ded;
+  };
+  _0x3cfff9[proenv_0x3038("0xed", "#JbT")] = "CDuRe";
+  _0x3cfff9["rbFFz"] = function (_0x523058, _0x582078, _0x398b79) {
+    return _0x523058(_0x582078, _0x398b79);
+  };
+  _0x3cfff9["sNLtr"] = proenv_0x3038("0x1ee", "5CX3");
+  _0x3cfff9[proenv_0x3038("0x1b1", "bKz3")] = function (_0x324114, _0x4a8c4d) {
+    return _0x324114(_0x4a8c4d);
+  };
+  const _0x41868d = _0x3cfff9;
+  return new Promise(async _0x309e26 => {
+    if (_0x41868d[proenv_0x3038("0x42", "CHCK")](_0x41868d["VMjae"], _0x41868d["VMjae"])) {
+      if ($[proenv_0x3038("0x47", "9Qm4")]()) {
+        if (proenv_0x31a3f7) {
+          $["msg"]($["name"], "", "\u3010\u4EAC\u4E1C\u8D26\u53F7" + $[proenv_0x3038("0x15a", "@5sN")] + "\u3011" + $["UserName"] + " " + proenv_0x31a3f7 + " \n");
+          proenv_0x2d1eb6 += "\u3010\u4EAC\u4E1C\u8D26\u53F7" + $[proenv_0x3038("0xe9", "3U5L")] + "\u3011" + $["UserName"] + " " + proenv_0x31a3f7 + (_0x41868d[proenv_0x3038("0x24", "^TpC")]($[proenv_0x3038("0xa6", "38h$")], proenv_0x281d56["length"]) ? "\n" : "");
+        } else {
+          proenv_0x2d1eb6 += "";
+        }
+      }
+    } else {
+      try {
+        if (_0x41868d[proenv_0x3038("0x16a", "Sf]x")](_0x41868d[proenv_0x3038("0x162", "259s")], proenv_0x3038("0x147", "j*k9"))) {
+          await $[proenv_0x3038("0x289", "7MTm")](parseInt(_0x41868d[proenv_0x3038("0x16b", "[16e")](Math[proenv_0x3038("0x16e", "PKdD")](), 350) + 250, 10));
+          let _0x1a5b2a = await proenv_0x3f66d0();
+          if (_0x41868d["QtRnO"](_0x1a5b2a, "")) {
+            const _0x4776b4 = _0x41868d["GQfns"]["split"]("|");
+            let _0x4c4ebe = 0;
+            while (!![]) {
+              switch (_0x4776b4[_0x4c4ebe++]) {
+                case "0":
+                  $["ip"] = ips[0];
+                  continue;
+                case "1":
+                  console["log"](proenv_0x3038("0x11f", "M8u9") + _0x1a5b2a);
+                  continue;
+                case "2":
+                  await $["wait"](_0x41868d[proenv_0x3038("0xcc", "CHCK")](parseInt, _0x41868d["GhfXU"](Math["random"]() * 350, 250), 10));
+                  continue;
+                case "3":
+                  $[proenv_0x3038("0x23a", "Sf]x")] = ips[1];
+                  continue;
+                case "4":
+                  $["getIpStatus"] = !![];
+                  continue;
+                case "5":
+                  ips = _0x1a5b2a["split"](":");
+                  continue;
+              }
+              break;
+            }
+          } else {
+            if (_0x41868d[proenv_0x3038("0xb0", "Kt@W")]("DAMMy", _0x41868d[proenv_0x3038("0x1a9", "HTA^")])) {
+              return JSON[proenv_0x3038("0x28c", "@p%V")](str);
+            } else {
+              $["getIpStatus"] = ![];
+              console[proenv_0x3038("0x3b", "^TpC")](proenv_0x3038("0x284", "DVVm"));
+            }
+          }
+        } else {
+          const _0x2c8967 = {};
+          _0x2c8967["appid"] = appid;
+          _0x2c8967[proenv_0x3038("0x135", "PKdD")] = type;
+          _0x2c8967[proenv_0x3038("0x1f2", "FPC3")] = _0x41868d["QqXtJ"];
+          _0x2c8967["client"] = _0x41868d[proenv_0x3038("0x1fa", "bKz3")];
+          _0x2c8967["body"] = bo;
+          _0x2c8967["t"] = Date["now"]();
+          bb = _0x2c8967;
+          return bb;
+        }
+      } catch (_0x13de5a) {
+        $[proenv_0x3038("0x17f", "j*k9")] = ![];
+        console["log"]("\u4EE3\u7406\u83B7\u53D6\u5931\u8D25");
+      }
+      if (_0x41868d["ZirCN"]($[proenv_0x3038("0x7", "Zg)!")], ![])) {
+        if (_0x41868d["kulSN"](_0x41868d[proenv_0x3038("0x27a", "Zg)!")], _0x41868d[proenv_0x3038("0x1f4", "dU(g")])) {
+          console[proenv_0x3038("0x99", "38h$")](e);
+          $[proenv_0x3038("0xaf", "ZZr*")]($[proenv_0x3038("0x1ae", "V#hn")], "", "\u8BF7\u52FF\u968F\u610F\u5728BoxJs\u8F93\u5165\u6846\u4FEE\u6539\u5185\u5BB9\n\u5EFA\u8BAE\u901A\u8FC7\u811A\u672C\u53BB\u83B7\u53D6cookie");
+          return [];
+        } else {
+          try {
+            await $["wait"](_0x41868d[proenv_0x3038("0x5e", "j*k9")](parseInt, _0x41868d[proenv_0x3038("0x266", "4Ozs")](_0x41868d["wsFnQ"](Math["random"](), 350), 250), 10));
+            let _0x4fbd91 = await proenv_0x3f66d0();
+            if (_0x4fbd91 != "") {
+              if (_0x41868d[proenv_0x3038("0x145", "7MTm")]("CIEJN", _0x41868d[proenv_0x3038("0x3a", "oFf&")])) {
+                $["getIpStatus"] = !![];
+                console["log"](proenv_0x3038("0x1ca", "38h$") + _0x4fbd91);
+                ips = _0x4fbd91["split"](":");
+                $["ip"] = ips[0];
+                $["ipo"] = ips[1];
+                await $[proenv_0x3038("0x117", "oFf&")](_0x41868d["rbFFz"](parseInt, _0x41868d[proenv_0x3038("0x205", "Sf]x")](Math["random"](), 350) + 250, 10));
+              } else {
+                if (data) {
+                  res = JSON["parse"](data);
+                }
+              }
+            } else {
+              if (_0x41868d[proenv_0x3038("0x2f", "259s")] === proenv_0x3038("0x29c", "Zg)!")) {
+                $[proenv_0x3038("0x1c8", "q3r#")] = ![];
+                console["log"](proenv_0x3038("0x1f6", "$Rbk"));
+              } else {
+                proenv_0x2d1eb6 += "";
+              }
+            }
+          } catch (_0x3c6f76) {
+            $["getIpStatus"] = ![];
+            console["log"]("\u4EE3\u7406\u83B7\u53D6\u5931\u8D25");
+          }
+        }
+      }
+      if (_0x41868d[proenv_0x3038("0x10d", "259s")]($["getIpStatus"], ![])) {
+        console["log"](proenv_0x3038("0xd1", "$Rbk"));
+        _0x309e26(![]);
+      } else {
+        _0x41868d[proenv_0x3038("0x1f8", "1*6k")](_0x309e26, !![]);
+      }
+    }
+  });
+}
+function proenv_0x3f66d0() {
+  const _0x4719ec = {};
+  _0x4719ec[proenv_0x3038("0x199", "@p%V")] = "kwBFs";
+  _0x4719ec["IElSh"] = function (_0x6b77ca, _0x2c92c4) {
+    return _0x6b77ca === _0x2c92c4;
+  };
+  _0x4719ec["vYYEL"] = proenv_0x3038("0xe3", "5CX3");
+  _0x4719ec[proenv_0x3038("0x278", "3U5L")] = "NEySK";
+  _0x4719ec[proenv_0x3038("0x1ab", "@p%V")] = proenv_0x3038("0x241", "Sf]x");
+  _0x4719ec[proenv_0x3038("0x1cb", "259s")] = proenv_0x3038("0x217", "AIu7");
+  _0x4719ec[proenv_0x3038("0xdd", "[16e")] = function (_0x1ed39c, _0x42a689) {
+    return _0x1ed39c >= _0x42a689;
+  };
+  _0x4719ec[proenv_0x3038("0x7c", "@5sN")] = function (_0x19d791, _0x516dc6) {
+    return _0x19d791 > _0x516dc6;
+  };
+  _0x4719ec["WHwNv"] = function (_0x1955ca, _0x3d5554) {
+    return _0x1955ca !== _0x3d5554;
+  };
+  _0x4719ec[proenv_0x3038("0x1c", "@5sN")] = "nWVdP";
+  _0x4719ec["aRlsG"] = proenv_0x3038("0x29", "9Qm4");
+  _0x4719ec[proenv_0x3038("0xc", "AIu7")] = proenv_0x3038("0x1c1", "4Ozs");
+  _0x4719ec[proenv_0x3038("0x1b3", "@p%V")] = function (_0xd0fd0, _0x21ce67) {
+    return _0xd0fd0 >= _0x21ce67;
+  };
+  _0x4719ec[proenv_0x3038("0x297", "FPC3")] = function (_0x5b4335, _0x4a8c20) {
+    return _0x5b4335(_0x4a8c20);
+  };
+  _0x4719ec["dOIai"] = function (_0x10bd28, _0x5e5e28) {
+    return _0x10bd28 === _0x5e5e28;
+  };
+  _0x4719ec["ictel"] = proenv_0x3038("0x112", "$Rbk");
+  _0x4719ec["oHisZ"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/538.38";
+  _0x4719ec["RndjD"] = "TglzD";
+  _0x4719ec["RRGrs"] = "OjXoP";
+  const _0x707519 = _0x4719ec;
+  try {
+    return new Promise(_0x3ca643 => {
+      if (_0x707519["dOIai"](_0x707519[proenv_0x3038("0x95", "dU(g")], proenv_0x3038("0x11b", "X)A8"))) {
+        const _0x2134ec = {};
+        _0x2134ec["User-Agent"] = _0x707519[proenv_0x3038("0x25d", "[4T9")];
+        const _0x221dec = {};
+        _0x221dec["url"] = your_proxy_url;
+        _0x221dec[proenv_0x3038("0x45", "PKdD")] = _0x2134ec;
+        _0x221dec[proenv_0x3038("0x253", "AIu7")] = 30000;
+        $["get"](_0x221dec, (_0x556c66, _0x1f9680, _0xe9f3e6) => {
+          try {
+            if (_0x556c66) {
+              if ("icTQe" !== _0x707519[proenv_0x3038("0x28", "AIu7")]) {
+                console[proenv_0x3038("0x81", "Ix2i")](proenv_0x3038("0x1c3", "y(7H"));
+              } else {
+                console["log"](_0xe9f3e6);
+              }
+            } else {
+              if (_0x707519[proenv_0x3038("0x1b5", "M8u9")](_0x707519[proenv_0x3038("0x169", "9Qm4")], _0x707519[proenv_0x3038("0x7f", "B[kr")])) {
+                console[proenv_0x3038("0x100", "q3r#")]("ip\u53EF\u80FD\u5DF2\u7ECF\u88AB\u9650\u5236\uFF0C \u8FC7\u5341\u5206\u949F\u518D\u6765\uFF01\uFF01\uFF01");
+                $[proenv_0x3038("0xa5", "X)A8")] = !![];
+                process[proenv_0x3038("0x206", "M8u9")](1);
+              } else {
+                try {
+                  if (_0x707519[proenv_0x3038("0x298", "9Qm4")] === _0x707519[proenv_0x3038("0x77", "y(7H")]) {
+                    if (_0xe9f3e6[proenv_0x3038("0x27", "5CX3")]("\r\n") > -1) {
+                      if (_0x707519[proenv_0x3038("0x88", "*TJp")](_0x707519[proenv_0x3038("0x1", "5CX3")], proenv_0x3038("0x6f", "dU(g"))) {
+                        _0xe9f3e6 = _0xe9f3e6[proenv_0x3038("0x1d", "@p%V")]("\r\n");
+                        if (_0x707519["uohKe"](_0xe9f3e6["length"], 1)) {
+                          _0xe9f3e6 = _0xe9f3e6[0];
+                        }
+                      } else {
+                        console[proenv_0x3038("0x1a1", "5CX3")](_0xe9f3e6);
+                      }
+                    } else if (_0x707519["NtfhF"](_0xe9f3e6["indexOf"]("\n"), -1)) {
+                      if (_0x707519[proenv_0x3038("0x1bf", "Kt@W")](_0x707519["FDPtF"], _0x707519[proenv_0x3038("0x1f1", "*ut9")])) {
+                        _0xe9f3e6 = _0xe9f3e6["split"]("\n");
+                        if (_0x707519["uohKe"](_0xe9f3e6[proenv_0x3038("0x14b", "V#hn")], 1)) {
+                          _0xe9f3e6 = _0xe9f3e6[0];
+                        }
+                      } else {
+                        $[proenv_0x3038("0x25e", "&c5t")] = shopInfo["shopId"] || "";
+                        $[proenv_0x3038("0x24d", "B[kr")] = shopInfo["venderId"] || "";
+                      }
+                    } else if (_0xe9f3e6[proenv_0x3038("0x1f7", "4Ozs")]("\r") > -1) {
+                      if (_0x707519[proenv_0x3038("0x12", "FPC3")] === _0x707519[proenv_0x3038("0x136", "(i4N")]) {
+                        _0xe9f3e6 = _0xe9f3e6["split"]("\r");
+                        if (_0xe9f3e6["length"] >= 1) {
+                          _0xe9f3e6 = _0xe9f3e6[0];
+                        }
+                      } else {
+                        res = JSON["parse"](_0xe9f3e6);
+                      }
+                    } else if (_0x707519[proenv_0x3038("0x1c9", "*ut9")](_0xe9f3e6[proenv_0x3038("0x12c", "#JbT")]("\t"), -1)) {
+                      _0xe9f3e6 = _0xe9f3e6[proenv_0x3038("0x170", "*TJp")]("\t");
+                      if (_0x707519[proenv_0x3038("0x13f", "CHCK")](_0xe9f3e6["length"], 1)) {
+                        _0xe9f3e6 = _0xe9f3e6[0];
+                      }
+                    }
+                  } else {
+                    return "";
+                  }
+                } catch (_0x30e719) {
+                  _0xe9f3e6 = "";
+                }
+              }
+            }
+          } catch (_0x5a0649) {} finally {
+            _0x707519[proenv_0x3038("0x1e0", "Ydq8")](_0x3ca643, _0xe9f3e6 || "");
+          }
+        });
+      } else {
+        $["ERR_BAD_REQUEST"] = 0;
+      }
+    });
+  } catch (_0x467ea8) {
+    if (_0x707519["RndjD"] !== _0x707519[proenv_0x3038("0x25a", "Mqi6")]) {
+      console[proenv_0x3038("0x4c", "SiLc")](_0x467ea8["message"]);
+    } else {
+      console["log"](_0x467ea8[proenv_0x3038("0x96", "j*k9")]);
+    }
+  }
+}
+function Env(t, e) {
+  "undefined" != typeof process && JSON.stringify(process.env).indexOf("GITHUB") > -1 && process.exit(0);
+  class s {
+    constructor(t) {
+      this.env = t;
+    }
+    send(t, e = "GET") {
+      t = "string" == typeof t ? {
+        url: t
+      } : t;
+      let s = this.get;
+      return "POST" === e && (s = this.post), new Promise((e, i) => {
+        s.call(this, t, (t, s, r) => {
+          t ? i(t) : e(s);
+        });
+      });
+    }
+    get(t) {
+      return this.send.call(this.env, t);
+    }
+    post(t) {
+      return this.send.call(this.env, t, "POST");
+    }
+  }
+  return new class {
+    constructor(t, e) {
+      this.name = t, this.http = new s(this), this.data = null, this.dataFile = "box.dat", this.logs = [], this.isMute = !1, this.isNeedRewrite = !1, this.logSeparator = "\n", this.startTime = new Date().getTime(), Object.assign(this, e), this.log("", `🔔${this.name}, 开始!`);
+    }
+    isNode() {
+      return "undefined" != typeof module && !!module.exports;
+    }
+    isQuanX() {
+      return "undefined" != typeof $task;
+    }
+    isSurge() {
+      return "undefined" != typeof $httpClient && "undefined" == typeof $loon;
+    }
+    isLoon() {
+      return "undefined" != typeof $loon;
+    }
+    toObj(t, e = null) {
+      try {
+        return JSON.parse(t);
+      } catch {
+        return e;
+      }
+    }
+    toStr(t, e = null) {
+      try {
+        return JSON.stringify(t);
+      } catch {
+        return e;
+      }
+    }
+    getjson(t, e) {
+      let s = e;
+      const i = this.getdata(t);
+      if (i) try {
+        s = JSON.parse(this.getdata(t));
+      } catch {}
+      return s;
+    }
+    setjson(t, e) {
+      try {
+        return this.setdata(JSON.stringify(t), e);
+      } catch {
+        return !1;
+      }
+    }
+    getScript(t) {
+      return new Promise(e => {
+        this.get({
+          url: t
+        }, (t, s, i) => e(i));
+      });
+    }
+    runScript(t, e) {
+      return new Promise(s => {
+        let i = this.getdata("@chavy_boxjs_userCfgs.httpapi");
+        i = i ? i.replace(/\n/g, "").trim() : i;
+        let r = this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");
+        r = r ? 1 * r : 20, r = e && e.timeout ? e.timeout : r;
+        const [o, h] = i.split("@"),
+          n = {
+            url: `http://${h}/v1/scripting/evaluate`,
+            body: {
+              script_text: t,
+              mock_type: "cron",
+              timeout: r
+            },
+            headers: {
+              "X-Key": o,
+              Accept: "*/*"
+            }
+          };
+        this.post(n, (t, e, i) => s(i));
+      }).catch(t => this.logErr(t));
+    }
+    loaddata() {
+      if (!this.isNode()) return {};
+      {
+        this.fs = this.fs ? this.fs : require("fs"), this.path = this.path ? this.path : require("path");
+        const t = this.path.resolve(this.dataFile),
+          e = this.path.resolve(process.cwd(), this.dataFile),
+          s = this.fs.existsSync(t),
+          i = !s && this.fs.existsSync(e);
+        if (!s && !i) return {};
+        {
+          const i = s ? t : e;
+          try {
+            return JSON.parse(this.fs.readFileSync(i));
+          } catch (t) {
+            return {};
+          }
+        }
+      }
+    }
+    writedata() {
+      if (this.isNode()) {
+        this.fs = this.fs ? this.fs : require("fs"), this.path = this.path ? this.path : require("path");
+        const t = this.path.resolve(this.dataFile),
+          e = this.path.resolve(process.cwd(), this.dataFile),
+          s = this.fs.existsSync(t),
+          i = !s && this.fs.existsSync(e),
+          r = JSON.stringify(this.data);
+        s ? this.fs.writeFileSync(t, r) : i ? this.fs.writeFileSync(e, r) : this.fs.writeFileSync(t, r);
+      }
+    }
+    lodash_get(t, e, s) {
+      const i = e.replace(/\[(\d+)\]/g, ".$1").split(".");
+      let r = t;
+      for (const t of i) if (r = Object(r)[t], void 0 === r) return s;
+      return r;
+    }
+    lodash_set(t, e, s) {
+      return Object(t) !== t ? t : (Array.isArray(e) || (e = e.toString().match(/[^.[\]]+/g) || []), e.slice(0, -1).reduce((t, s, i) => Object(t[s]) === t[s] ? t[s] : t[s] = Math.abs(e[i + 1]) >> 0 == +e[i + 1] ? [] : {}, t)[e[e.length - 1]] = s, t);
+    }
+    getdata(t) {
+      let e = this.getval(t);
+      if (/^@/.test(t)) {
+        const [, s, i] = /^@(.*?)\.(.*?)$/.exec(t),
+          r = s ? this.getval(s) : "";
+        if (r) try {
+          const t = JSON.parse(r);
+          e = t ? this.lodash_get(t, i, "") : e;
+        } catch (t) {
+          e = "";
+        }
+      }
+      return e;
+    }
+    setdata(t, e) {
+      let s = !1;
+      if (/^@/.test(e)) {
+        const [, i, r] = /^@(.*?)\.(.*?)$/.exec(e),
+          o = this.getval(i),
+          h = i ? "null" === o ? null : o || "{}" : "{}";
+        try {
+          const e = JSON.parse(h);
+          this.lodash_set(e, r, t), s = this.setval(JSON.stringify(e), i);
+        } catch (e) {
+          const o = {};
+          this.lodash_set(o, r, t), s = this.setval(JSON.stringify(o), i);
+        }
+      } else s = this.setval(t, e);
+      return s;
+    }
+    getval(t) {
+      return this.isSurge() || this.isLoon() ? $persistentStore.read(t) : this.isQuanX() ? $prefs.valueForKey(t) : this.isNode() ? (this.data = this.loaddata(), this.data[t]) : this.data && this.data[t] || null;
+    }
+    setval(t, e) {
+      return this.isSurge() || this.isLoon() ? $persistentStore.write(t, e) : this.isQuanX() ? $prefs.setValueForKey(t, e) : this.isNode() ? (this.data = this.loaddata(), this.data[e] = t, this.writedata(), !0) : this.data && this.data[e] || null;
+    }
+    initGotEnv(t) {
+      this.got = this.got ? this.got : require("got"), this.cktough = this.cktough ? this.cktough : require("tough-cookie"), this.ckjar = this.ckjar ? this.ckjar : new this.cktough.CookieJar(), t && (t.headers = t.headers ? t.headers : {}, void 0 === t.headers.Cookie && void 0 === t.cookieJar && (t.cookieJar = this.ckjar));
+    }
+    get(t, e = () => {}) {
+      t.headers && (delete t.headers["Content-Type"], delete t.headers["Content-Length"]), this.isSurge() || this.isLoon() ? (this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+        "X-Surge-Skip-Scripting": !1
+      })), $httpClient.get(t, (t, s, i) => {
+        !t && s && (s.body = i, s.statusCode = s.status), e(t, s, i);
+      })) : this.isQuanX() ? (this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
+        hints: !1
+      })), $task.fetch(t).then(t => {
+        const {
+          statusCode: s,
+          statusCode: i,
+          headers: r,
+          body: o
+        } = t;
+        e(null, {
+          status: s,
+          statusCode: i,
+          headers: r,
+          body: o
+        }, o);
+      }, t => e(t))) : this.isNode() && (this.initGotEnv(t), this.got(t).on("redirect", (t, e) => {
+        try {
+          if (t.headers["set-cookie"]) {
+            const s = t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();
+            s && this.ckjar.setCookieSync(s, null), e.cookieJar = this.ckjar;
+          }
+        } catch (t) {
+          this.logErr(t);
+        }
+      }).then(t => {
+        const {
+          statusCode: s,
+          statusCode: i,
+          headers: r,
+          body: o
+        } = t;
+        e(null, {
+          status: s,
+          statusCode: i,
+          headers: r,
+          body: o
+        }, o);
+      }, t => {
+        const {
+          message: s,
+          response: i
+        } = t;
+        e(s, i, i && i.body);
+      }));
+    }
+    post(t, e = () => {}) {
+      if (t.body && t.headers && !t.headers["Content-Type"] && (t.headers["Content-Type"] = "application/x-www-form-urlencoded"), t.headers && delete t.headers["Content-Length"], this.isSurge() || this.isLoon()) this.isSurge() && this.isNeedRewrite && (t.headers = t.headers || {}, Object.assign(t.headers, {
+        "X-Surge-Skip-Scripting": !1
+      })), $httpClient.post(t, (t, s, i) => {
+        !t && s && (s.body = i, s.statusCode = s.status), e(t, s, i);
+      });else if (this.isQuanX()) t.method = "POST", this.isNeedRewrite && (t.opts = t.opts || {}, Object.assign(t.opts, {
+        hints: !1
+      })), $task.fetch(t).then(t => {
+        const {
+          statusCode: s,
+          statusCode: i,
+          headers: r,
+          body: o
+        } = t;
+        e(null, {
+          status: s,
+          statusCode: i,
+          headers: r,
+          body: o
+        }, o);
+      }, t => e(t));else if (this.isNode()) {
+        this.initGotEnv(t);
+        const {
+          url: s,
+          ...i
+        } = t;
+        this.got.post(s, i).then(t => {
+          const {
+            statusCode: s,
+            statusCode: i,
+            headers: r,
+            body: o
+          } = t;
+          e(null, {
+            status: s,
+            statusCode: i,
+            headers: r,
+            body: o
+          }, o);
+        }, t => {
+          const {
+            message: s,
+            response: i
+          } = t;
+          e(s, i, i && i.body);
+        });
+      }
+    }
+    time(t, e = null) {
+      const s = e ? new Date(e) : new Date();
+      let i = {
+        "M+": s.getMonth() + 1,
+        "d+": s.getDate(),
+        "H+": s.getHours(),
+        "m+": s.getMinutes(),
+        "s+": s.getSeconds(),
+        "q+": Math.floor((s.getMonth() + 3) / 3),
+        S: s.getMilliseconds()
+      };
+      /(y+)/.test(t) && (t = t.replace(RegExp.$1, (s.getFullYear() + "").substr(4 - RegExp.$1.length)));
+      for (let e in i) new RegExp("(" + e + ")").test(t) && (t = t.replace(RegExp.$1, 1 == RegExp.$1.length ? i[e] : ("00" + i[e]).substr(("" + i[e]).length)));
+      return t;
+    }
+    msg(e = t, s = "", i = "", r) {
+      const o = t => {
+        if (!t) return t;
+        if ("string" == typeof t) return this.isLoon() ? t : this.isQuanX() ? {
+          "open-url": t
+        } : this.isSurge() ? {
+          url: t
+        } : void 0;
+        if ("object" == typeof t) {
+          if (this.isLoon()) {
+            let e = t.openUrl || t.url || t["open-url"],
+              s = t.mediaUrl || t["media-url"];
+            return {
+              openUrl: e,
+              mediaUrl: s
+            };
+          }
+          if (this.isQuanX()) {
+            let e = t["open-url"] || t.url || t.openUrl,
+              s = t["media-url"] || t.mediaUrl;
+            return {
+              "open-url": e,
+              "media-url": s
+            };
+          }
+          if (this.isSurge()) {
+            let e = t.url || t.openUrl || t["open-url"];
+            return {
+              url: e
+            };
+          }
+        }
+      };
+      if (this.isMute || (this.isSurge() || this.isLoon() ? $notification.post(e, s, i, o(r)) : this.isQuanX() && $notify(e, s, i, o(r))), !this.isMuteLog) {
+        let t = ["", "==============\uD83D\uDCE3\u7CFB\u7EDF\u901A\u77E5\uD83D\uDCE3=============="];
+        t.push(e), s && t.push(s), i && t.push(i), console.log(t.join("\n")), this.logs = this.logs.concat(t);
+      }
+    }
+    log(...t) {
+      t.length > 0 && (this.logs = [...this.logs, ...t]), console.log(t.join(this.logSeparator));
+    }
+    logErr(t, e) {
+      const s = !this.isSurge() && !this.isQuanX() && !this.isLoon();
+      s ? this.log("", `❗️${this.name}, 错误!`, t.stack) : this.log("", `❗️${this.name}, 错误!`, t);
+    }
+    wait(t) {
+      return new Promise(e => setTimeout(e, t));
+    }
+    done(t = {}) {
+      const e = new Date().getTime(),
+        s = (e - this.startTime) / 1000;
+      this.log("", `🔔${this.name}, 结束! 🕛 ${s} 秒`), this.log(), (this.isSurge() || this.isQuanX() || this.isLoon()) && $done(t);
+    }
+  }(t, e);
+}
